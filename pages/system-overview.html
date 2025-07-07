@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>システム全体構成 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li>
+						<a href="system-overview.html" class="active">システム構成</a>
+					</li>
+					<li><a href="product-management.html">商品管理</a></li>
+					<li><a href="troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>🔧 システム全体構成</h1>
+				<p class="subtitle">管理者向け - Excelファイルの構造とデータの流れ</p>
+				<div class="system-overview">
+					<h2>📋 システム概要</h2>
+					<p>
+						製造センターから40店舗への納品管理を行う統合システムです。<br />
+						<strong>商品データベースを中心に、すべての業務が自動連動</strong
+						>するよう設計されています。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- ファイル構成 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📁 ファイル構成</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">📊</div>
+							<h3 class="card__title">メインファイル</h3>
+							<div class="card__description">
+								<p><strong>CB商品データ.xlsx</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>商品データベース（核となるデータ）</li>
+									<li>製造管理関連シート</li>
+									<li>発注管理関連シート</li>
+									<li>各店舗別データシート</li>
+									<li>VBA操作用シート</li>
+								</ul>
+								<div class="badge badge--primary mt-1">
+									🎯 すべての処理の中心
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📄</div>
+							<h3 class="card__title">納品記録ファイル</h3>
+							<div class="card__description">
+								<p><strong>納品記録.xlsx</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>日々の納品実績記録</li>
+									<li>PDF出力機能</li>
+									<li>店舗別納品履歴</li>
+								</ul>
+								<div class="badge badge--success mt-1">✅ 実績管理専用</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- データ連動図 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🔄 データ連動フロー</h2>
+
+					<div class="system-overview mb-2">
+						<div
+							style="
+								text-align: center;
+								padding: 2rem;
+								background: #faf7f2;
+								border-radius: 15px;
+							"
+						>
+							<div
+								style="
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									gap: 1.5rem;
+								"
+							>
+								<!-- 商品データベース -->
+								<div
+									style="
+										background: #e8a87c;
+										color: white;
+										padding: 1rem 2rem;
+										border-radius: 10px;
+										font-weight: bold;
+										font-size: 1.2rem;
+									"
+								>
+									🍞 商品データベース<br />
+									<small style="font-size: 0.9rem; opacity: 0.9"
+										>（すべての基となるデータ）</small
+									>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- 中間層 -->
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+										gap: 1rem;
+										width: 100%;
+									"
+								>
+									<div
+										style="
+											background: #f4c2a1;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										📊 製造数計算
+									</div>
+									<div
+										style="
+											background: #f4c2a1;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										🧮 生地出し計算
+									</div>
+									<div
+										style="
+											background: #f4c2a1;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										📦 発注量計算
+									</div>
+									<div
+										style="
+											background: #f4c2a1;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										🏷️ ラベル情報
+									</div>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- 出力層 -->
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+										gap: 0.8rem;
+										width: 100%;
+									"
+								>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										夜間用表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										昼間用表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										並べる表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										生地出し表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										発注表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #e8a87c;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										明細書
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="badge badge--warning">
+						💡 商品データベースを変更すると、すべての表が自動で更新されます
+					</div>
+				</section>
+
+				<!-- シート詳細説明 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📋 各シートの役割</h2>
+
+					<div class="steps__container">
+						<!-- 核となるデータ -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🎯</div>
+								<h3>核となるデータシート</h3>
+							</div>
+							<div class="steps__item-content">
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #fff;
+											border-left: 4px solid #e8a87c;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #e8a87c; margin-bottom: 0.5rem">
+											🍞 商品データ
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											すべての商品情報を管理
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>商品ID、商品名、売価</li>
+											<li>生地名、製造情報</li>
+											<li>カテゴリ、期限設定</li>
+										</ul>
+									</div>
+									<div
+										style="
+											background: #fff;
+											border-left: 4px solid #e8a87c;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #e8a87c; margin-bottom: 0.5rem">
+											🏪 店舗マスター
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											各店舗の基本情報
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>店舗名、店舗番号</li>
+											<li>各店舗シートへのリンク</li>
+											<li>会社別管理</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 製造管理シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⚙️</div>
+								<h3>製造管理シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											📊 製造数
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">
+											2週間分の製造合計
+										</p>
+									</div>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											🌙 夜間用
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">24時間体制用表</p>
+									</div>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											☀️ 昼間用
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">日中作業用表</p>
+									</div>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											📋 並べる表
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">
+											生地配置用詳細表
+										</p>
+									</div>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											🧊 冷凍生地出し
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">
+											冷凍生地用1週間表
+										</p>
+									</div>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #e9ecef;
+										"
+									>
+										<h4 style="color: #495057; margin-bottom: 0.5rem">
+											🥖 スクラッチ生地出し
+										</h4>
+										<p style="font-size: 0.8rem; color: #666">
+											スクラッチ生地用1週間表
+										</p>
+									</div>
+								</div>
+								<div class="badge badge--primary mt-1">
+									🔄 すべてVBAで自動生成
+								</div>
+							</div>
+						</div>
+
+						<!-- 発注管理シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📦</div>
+								<h3>発注管理シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #e3f2fd;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #90caf9;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											📖 レシピ
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											商品別材料使用量
+										</p>
+									</div>
+									<div
+										style="
+											background: #e3f2fd;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #90caf9;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											🧱 材料マスター
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">材料の基本情報</p>
+									</div>
+									<div
+										style="
+											background: #e3f2fd;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #90caf9;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											📋 発注並び順
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											発注書と同じ順序
+										</p>
+									</div>
+									<div
+										style="
+											background: #e3f2fd;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #90caf9;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											📄 発注
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											自動計算された発注表
+										</p>
+									</div>
+									<div
+										style="
+											background: #e3f2fd;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #90caf9;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											🏪 仕入先別発注表
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											仕入先ごとに分類
+										</p>
+									</div>
+								</div>
+								<div class="badge badge--success mt-1">
+									📊 レシピ×製造数で自動計算
+								</div>
+							</div>
+						</div>
+
+						<!-- 帳票・ラベル管理シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📄</div>
+								<h3>帳票・ラベル管理シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #f3e5f5;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #ce93d8;
+										"
+									>
+										<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+											📋 伝票用
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											自社向け個数確認表
+										</p>
+									</div>
+									<div
+										style="
+											background: #f3e5f5;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #ce93d8;
+										"
+									>
+										<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+											📋 クリエ伝票用
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											他社向け個数確認表
+										</p>
+									</div>
+									<div
+										style="
+											background: #f3e5f5;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #ce93d8;
+										"
+									>
+										<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+											🏷️ ラベル出し
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											自社ラベル印刷用
+										</p>
+									</div>
+									<div
+										style="
+											background: #f3e5f5;
+											padding: 1rem;
+											border-radius: 8px;
+											border: 1px solid #ce93d8;
+										"
+									>
+										<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+											🏷️ クリエラベル出し
+										</h4>
+										<p style="font-size: 0.8rem; color: #555">
+											他社ラベル印刷用
+										</p>
+									</div>
+								</div>
+								<div class="badge badge--warning mt-1">⏰ 消費期限自動計算</div>
+							</div>
+						</div>
+
+						<!-- 店舗別管理シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🏪</div>
+								<h3>店舗別管理シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>各店舗に1シートずつ（約40シート）</strong></p>
+								<div
+									style="
+										background: #fff3e0;
+										padding: 1rem;
+										border-radius: 8px;
+										border-left: 4px solid #ff9800;
+										margin-top: 1rem;
+									"
+								>
+									<h4 style="color: #ef6c00; margin-bottom: 0.5rem">
+										📅 2週間分の納品個数表
+									</h4>
+									<ul
+										style="margin-left: 1.5rem; color: #666; font-size: 0.9rem"
+									>
+										<li>商品別の納品予定個数</li>
+										<li>納品日ごとの管理</li>
+										<li>店舗固有の商品設定</li>
+									</ul>
+								</div>
+								<div class="badge badge--primary mt-1">
+									🔗 商品データベースと完全連動
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- VBA自動化範囲 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">⚡ VBA自動化範囲</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">🔄</div>
+							<h3 class="card__title">完全自動化</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>製造数合計計算</li>
+									<li>生地出し個数計算</li>
+									<li>並べる表生成</li>
+									<li>発注表作成</li>
+									<li>ラベル出し表生成</li>
+								</ul>
+								<div class="badge badge--success mt-1">✅ ボタン1つで完了</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">🧮</div>
+							<h3 class="card__title">数式のみ</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>夜間用表</li>
+									<li>昼間用表</li>
+									<li>伝票用表</li>
+									<li>クリエ伝票用表</li>
+								</ul>
+								<div class="badge badge--primary mt-1">⚡ リアルタイム更新</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">✋</div>
+							<h3 class="card__title">手動操作必要</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>商品データの新規登録</li>
+									<li>終売商品の設定</li>
+									<li>店舗からの個数変更</li>
+									<li>レシピ・材料マスター更新</li>
+								</ul>
+								<div class="badge badge--warning mt-1">⚠️ 注意深く操作</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- システム保守のポイント -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🛠️ システム保守のポイント</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">💾</div>
+								<h3>バックアップ</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>毎日必ずバックアップを取ってください</strong></p>
+								<ul style="margin-left: 2rem; margin-top: 0.5rem">
+									<li>ファイルの複製を別フォルダに保存</li>
+									<li>日付を付けたファイル名で管理</li>
+									<li>最低1週間分は保持する</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⚠️</div>
+								<h3>データ変更時の注意点</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>商品データベースの変更は慎重に</strong></p>
+								<ul style="margin-left: 2rem; margin-top: 0.5rem">
+									<li>変更前に必ずバックアップ</li>
+									<li>影響範囲を事前に確認</li>
+									<li>変更後は関連表をすべてチェック</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🔧</div>
+								<h3>VBAエラー対応</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>VBAが動かない場合の対処法</strong></p>
+								<ul style="margin-left: 2rem; margin-top: 0.5rem">
+									<li>マクロの有効化を確認</li>
+									<li>ファイルの破損チェック</li>
+									<li>最新のバックアップから復旧</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="emergency-contact">
+					<h3>🆘 システムに関する重要な注意</h3>
+					<p>
+						このシステムは製造センター全体の業務を支えています。<br />
+						<strong
+							>不明な点や変更が必要な場合は、必ず十分な検証を行ってください。</strong
+						>
+					</p>
+					<p>システム障害は製造・納品に直接影響します。</p>
+				</div>
+			</main>
+
+			<footer>
+				<p>
+					© 2025 パン屋業務マニュアル |
+					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

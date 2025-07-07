@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>製造数管理 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li><a href="system-overview.html">システム構成</a></li>
+					<li><a href="product-management.html">商品管理</a></li>
+					<li><a href="order-management.html">発注管理</a></li>
+					<li>
+						<a href="production-management.html" class="active">製造数管理</a>
+					</li>
+					<li><a href="troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>📊 製造数管理</h1>
+				<p class="subtitle">事務作業者向け - 製造計画と生地出し管理システム</p>
+				<div class="system-overview">
+					<h2>📋 製造数管理システムについて</h2>
+					<p>
+						40店舗への納品個数から<strong>最適な製造数を算出し、生地出し計画と天板配置計画を自動作成</strong>するシステムです。<br />
+						商品特性（生地出し日数、成形タイミング）を考慮して、<strong>効率的な製造スケジュール</strong>を提供します。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- 製造数計算の仕組み -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🔄 製造数計算の仕組み</h2>
+
+					<div class="system-overview mb-2">
+						<div
+							style="
+								text-align: center;
+								padding: 2rem;
+								background: #faf7f2;
+								border-radius: 15px;
+							"
+						>
+							<div
+								style="
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									gap: 1.5rem;
+								"
+							>
+								<!-- ステップ1 -->
+								<div
+									style="
+										background: #e8a87c;
+										color: white;
+										padding: 1rem 2rem;
+										border-radius: 10px;
+										font-weight: bold;
+										font-size: 1.2rem;
+									"
+								>
+									🏪 各店舗の納品個数<br />
+									<small style="font-size: 0.9rem; opacity: 0.9"
+										>40店舗 × 商品別 × 日別</small
+									>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- ステップ2 -->
+								<div
+									style="
+										background: #f4c2a1;
+										color: white;
+										padding: 1rem 2rem;
+										border-radius: 10px;
+										font-weight: bold;
+										font-size: 1.1rem;
+									"
+								>
+									🧮 商品別製造数合計<br />
+									<small style="font-size: 0.9rem; opacity: 0.9"
+										>全店舗分を日別に集計</small
+									>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- ステップ3 -->
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+										gap: 1rem;
+										width: 100%;
+									"
+								>
+									<div
+										style="
+											background: #2c2c2c;
+											color: white;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										🧊 冷凍生地出し計画
+									</div>
+									<div
+										style="
+											background: #2c2c2c;
+											color: white;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										🥖 スクラッチ生地出し計画
+									</div>
+									<div
+										style="
+											background: #2c2c2c;
+											color: white;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										📋 天板配置計画
+									</div>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- ステップ4 -->
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+										gap: 0.8rem;
+										width: 100%;
+									"
+								>
+									<div
+										style="
+											background: white;
+											border: 2px solid #28a745;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										🌙 夜間用表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #28a745;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										☀️ 昼間用表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #28a745;
+											padding: 0.8rem;
+											border-radius: 6px;
+											text-align: center;
+											font-size: 0.9rem;
+										"
+									>
+										📋 並べる表
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="badge badge--success">
+						✅ 商品の特性（生地出し日数、成形タイミング）を自動考慮
+					</div>
+				</section>
+
+				<!-- 製造数関連シートの詳細 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📋 製造数関連シートの詳細</h2>
+
+					<div class="steps__container">
+						<!-- 製造数シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>製造数シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>2週間分の商品別製造合計数を表示するメインシートです</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 シートの構成</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>列</th>
+												<th>内容</th>
+												<th>説明</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>商品名</strong></td>
+												<td>商品の名称</td>
+												<td>商品データベースから自動取得</td>
+											</tr>
+											<tr>
+												<td><strong>日付列（14日分）</strong></td>
+												<td>各日の製造必要数</td>
+												<td>全店舗の納品数を合計</td>
+											</tr>
+											<tr>
+												<td><strong>合計</strong></td>
+												<td>2週間の製造総数</td>
+												<td>発注量計算に使用</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 確認ポイント</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>異常に多い/少ない製造数がないか</li>
+										<li>新商品が正しく表示されているか</li>
+										<li>終売商品が除外されているか</li>
+										<li>日付の表示が正しいか</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									📈 このデータが全ての製造計画の基準
+								</div>
+							</div>
+						</div>
+
+						<!-- CB製造数・クリエ製造数 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🏢</div>
+								<h3>CB製造数・クリエ製造数シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>会社別に分けた製造数管理シートです</strong></p>
+
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #e3f2fd;
+											border-left: 4px solid #1976d2;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+											🏢 CB製造数
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>自社店舗向けの製造数</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>自社店舗のみの合計</li>
+											<li>内部管理用データ</li>
+											<li>コスト計算の基準</li>
+										</ul>
+									</div>
+									<div
+										style="
+											background: #f3e5f5;
+											border-left: 4px solid #7b1fa2;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+											🤝 クリエ製造数
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>他社向けの製造数</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>他社店舗のみの合計</li>
+											<li>卸売管理用データ</li>
+											<li>売上分析の基準</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									📊 会社別データで経営分析も可能
+								</div>
+							</div>
+						</div>
+
+						<!-- 生地出し系シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🥖</div>
+								<h3>生地出しシート（冷凍・スクラッチ）</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>生地の種類に応じた1週間分の生地出し計画表です</strong>
+								</p>
+
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #e8f5e8;
+											border-left: 4px solid #4caf50;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #388e3c; margin-bottom: 0.5rem">
+											🧊 冷凍生地出し
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>冷凍生地使用商品の計画</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>解凍時間を考慮した計画</li>
+											<li>生地名別に分類</li>
+											<li>1週間分の必要量</li>
+										</ul>
+									</div>
+									<div
+										style="
+											background: #fff3e0;
+											border-left: 4px solid #ff9800;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #f57c00; margin-bottom: 0.5rem">
+											🥖 スクラッチ生地出し
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>生生地使用商品の計画</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>製造当日の生地準備</li>
+											<li>仕込み時間を考慮</li>
+											<li>フレッシュさ重視商品</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 生地出し表の見方</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>項目</th>
+												<th>説明</th>
+												<th>活用方法</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>生地名</strong></td>
+												<td>使用する生地の種類</td>
+												<td>生地別に作業を分担</td>
+											</tr>
+											<tr>
+												<td><strong>商品名</strong></td>
+												<td>最終的に作る商品</td>
+												<td>完成品のイメージ</td>
+											</tr>
+											<tr>
+												<td><strong>生地個数</strong></td>
+												<td>必要な生地の個数</td>
+												<td>実際の作業量</td>
+											</tr>
+											<tr>
+												<td><strong>日付</strong></td>
+												<td>生地出しを行う日</td>
+												<td>作業スケジュール</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⏰ 生地の特性に応じた最適なタイミングで自動計算
+								</div>
+							</div>
+						</div>
+
+						<!-- 並べる表シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>並べる表シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>生地を天板に並べる際の詳細な作業指示表です</strong>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🎯 並べる表の特徴</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>5個入り商品は×5で表示</strong><br />
+											実際に並べる生地の個数で表示
+										</li>
+										<li>
+											<strong>天板効率を考慮</strong><br />
+											最大数と倍数設定で効率的な配置
+										</li>
+										<li>
+											<strong>1週間分の一覧</strong><br />
+											先の予定まで見通せる
+										</li>
+										<li>
+											<strong>生地名による分類</strong><br />
+											同じ生地の商品をまとめて表示
+										</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📊 並べ方の表示例</h4>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											margin-top: 0.5rem;
+										"
+									>
+										<p style="margin-bottom: 0.5rem">
+											<strong>メロンパン：</strong>
+										</p>
+										<ul style="margin-left: 1.5rem; font-size: 0.9rem">
+											<li>並べる数：60個</li>
+											<li>並べ方：12個乗せが3枚、11個乗せが2枚</li>
+											<li>→ 天板を最大限活用した配置指示</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									🧮 商品設定（最大数・倍数）により自動最適化
+								</div>
+							</div>
+						</div>
+
+						<!-- 現場作業用シート -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">👷</div>
+								<h3>夜間用・昼間用シート</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>製造現場で実際に使用する作業指示表です</strong></p>
+
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+										gap: 1rem;
+									"
+								>
+									<div
+										style="
+											background: #263238;
+											color: white;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #81c784; margin-bottom: 0.5rem">
+											🌙 夜間用シート
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>24時間体制の夜間作業用</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												opacity: 0.9;
+											"
+										>
+											<li>夜間に並べる商品のみ表示</li>
+											<li>数式のみで自動更新</li>
+											<li>リアルタイム反映</li>
+										</ul>
+									</div>
+									<div
+										style="
+											background: #fff8e1;
+											border: 2px solid #ffc107;
+											padding: 1rem;
+											border-radius: 8px;
+										"
+									>
+										<h4 style="color: #f57c00; margin-bottom: 0.5rem">
+											☀️ 昼間用シート
+										</h4>
+										<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+											<strong>日中作業時間帯用</strong>
+										</p>
+										<ul
+											style="
+												font-size: 0.8rem;
+												margin-left: 1.5rem;
+												color: #666;
+											"
+										>
+											<li>昼間に並べる商品のみ表示</li>
+											<li>ユーザー定義関数使用</li>
+											<li>並べ方詳細表示</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作業表の共通項目</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品名</li>
+										<li>並べる数（実際の作業量）</li>
+										<li>生地名（作業分担の目安）</li>
+										<li>並べ方（天板配置の指示）</li>
+										<li>納品日（完成目標日）</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									⚡ 製造数変更時も即座に反映
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 製造数更新作業の手順 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🔄 製造数更新作業の手順</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">1</div>
+								<h3>週次定期更新</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>毎週決まった曜日に実行する標準的な更新作業です</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📅 更新タイミング</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>毎週○曜日の○時（決められた時間）</li>
+										<li>翌週の製造計画確定後</li>
+										<li>店舗からの個数変更依頼締切後</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 更新作業手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>バックアップ作成</strong><br />
+											現在のファイルをバックアップ
+										</li>
+										<li>
+											<strong>店舗別データの確認</strong><br />
+											各店舗シートで個数に変更がないか最終確認
+										</li>
+										<li>
+											<strong>「操作」シートを開く</strong><br />
+											VBA操作用のシートに移動
+										</li>
+										<li>
+											<strong>「更新」ボタンをクリック</strong><br />
+											全ての製造関連表を一括更新
+										</li>
+										<li>
+											<strong>処理完了まで待機</strong><br />
+											「更新完了」メッセージが表示されるまで待つ
+										</li>
+										<li>
+											<strong>結果の確認</strong><br />
+											各シートで更新内容を確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									⏰ 標準的な処理時間：3〜5分
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">2</div>
+								<h3>緊急時の部分更新</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>急な個数変更や新商品追加時の緊急対応です</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>🚨 緊急更新が必要な場面</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>店舗から大幅な個数変更依頼</li>
+										<li>急な新商品の製造開始</li>
+										<li>設備トラブルによる製造変更</li>
+										<li>原材料不足による商品変更</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚡ 緊急更新手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>変更内容の把握</strong><br />
+											どの商品、どの店舗、どの期間の変更か明確化
+										</li>
+										<li>
+											<strong>影響範囲の確認</strong><br />
+											製造・発注・配送への影響を評価
+										</li>
+										<li>
+											<strong>店舗データの修正</strong><br />
+											該当店舗シートで個数を修正
+										</li>
+										<li>
+											<strong>部分更新実行</strong><br />
+											必要最小限の範囲で更新ボタンを実行
+										</li>
+										<li>
+											<strong>関係部署への連絡</strong><br />
+											製造現場、配送、発注担当への情報共有
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🚨 緊急時こそ慎重に。影響範囲を必ず確認
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">3</div>
+								<h3>更新後の確認作業</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>更新処理後に必ず実施する確認項目です</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>✅ 必須確認項目</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>確認項目</th>
+												<th>確認内容</th>
+												<th>異常時の対応</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>製造数シート</strong></td>
+												<td>合計数が正常か</td>
+												<td>店舗データを再確認</td>
+											</tr>
+											<tr>
+												<td><strong>生地出し表</strong></td>
+												<td>エラー表示がないか</td>
+												<td>商品データの整合性確認</td>
+											</tr>
+											<tr>
+												<td><strong>並べる表</strong></td>
+												<td>計算結果が妥当か</td>
+												<td>商品設定値を確認</td>
+											</tr>
+											<tr>
+												<td><strong>夜間・昼間用表</strong></td>
+												<td>表示内容が適切か</td>
+												<td>数式の参照先確認</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 詳細確認ポイント</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>数値の妥当性</strong><br />
+											異常に大きい/小さい数値がないか
+										</li>
+										<li>
+											<strong>新商品の反映</strong><br />
+											新しく追加した商品が正しく表示されているか
+										</li>
+										<li>
+											<strong>終売商品の除外</strong><br />
+											終売設定した商品が表示されていないか
+										</li>
+										<li>
+											<strong>日付の整合性</strong><br />
+											表示されている日付が正しいか
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									✅ 確認作業は品質保証の基本
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

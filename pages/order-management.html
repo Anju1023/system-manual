@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>発注管理 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li><a href="system-overview.html">システム構成</a></li>
+					<li><a href="product-management.html">商品管理</a></li>
+					<li><a href="order-management.html" class="active">発注管理</a></li>
+					<li><a href="troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>📦 発注管理</h1>
+				<p class="subtitle">
+					事務作業者向け - レシピから自動発注表作成システム
+				</p>
+				<div class="system-overview">
+					<h2>📋 発注管理システムについて</h2>
+					<p>
+						商品の製造数とレシピデータから、<strong>必要な材料を自動計算して発注表を作成</strong>するシステムです。<br />
+						材料の無駄を防ぎ、欠品を避けるために正確な発注量を計算します。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- 発注システムの仕組み -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🔄 発注システムの仕組み</h2>
+
+					<div class="system-overview mb-2">
+						<div
+							style="
+								text-align: center;
+								padding: 2rem;
+								background: #faf7f2;
+								border-radius: 15px;
+							"
+						>
+							<div
+								style="
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+									gap: 1.5rem;
+								"
+							>
+								<!-- ステップ1 -->
+								<div
+									style="
+										display: flex;
+										align-items: center;
+										gap: 1rem;
+										width: 100%;
+										justify-content: center;
+									"
+								>
+									<div
+										style="
+											background: #e8a87c;
+											color: white;
+											padding: 1rem 1.5rem;
+											border-radius: 10px;
+											font-weight: bold;
+											min-width: 150px;
+											text-align: center;
+										"
+									>
+										📊 製造数<br />
+										<small style="font-size: 0.8rem; opacity: 0.9"
+											>各商品の製造予定数</small
+										>
+									</div>
+									<div style="font-size: 1.5rem; color: #e8a87c">✕</div>
+									<div
+										style="
+											background: #f4c2a1;
+											color: white;
+											padding: 1rem 1.5rem;
+											border-radius: 10px;
+											font-weight: bold;
+											min-width: 150px;
+											text-align: center;
+										"
+									>
+										📖 レシピ<br />
+										<small style="font-size: 0.8rem; opacity: 0.9"
+											>商品ごとの材料使用量</small
+										>
+									</div>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- ステップ2 -->
+								<div
+									style="
+										background: #2c2c2c;
+										color: white;
+										padding: 1rem 2rem;
+										border-radius: 10px;
+										font-weight: bold;
+										font-size: 1.1rem;
+									"
+								>
+									🧮 VBA自動計算<br />
+									<small style="font-size: 0.9rem; opacity: 0.9"
+										>材料別必要量を集計</small
+									>
+								</div>
+
+								<!-- 矢印 -->
+								<div style="font-size: 2rem; color: #e8a87c">⬇️</div>
+
+								<!-- ステップ3 -->
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+										gap: 1rem;
+										width: 100%;
+									"
+								>
+									<div
+										style="
+											background: white;
+											border: 2px solid #28a745;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										📄 発注表
+									</div>
+									<div
+										style="
+											background: white;
+											border: 2px solid #28a745;
+											padding: 1rem;
+											border-radius: 8px;
+											text-align: center;
+											font-weight: 500;
+										"
+									>
+										🏪 仕入先別発注表
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="badge badge--success">
+						✅ 一度設定すれば、製造数変更時も自動で発注量が更新されます
+					</div>
+				</section>
+
+				<!-- 基礎データ管理 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📚 基礎データ管理</h2>
+
+					<div class="steps__container">
+						<!-- レシピ管理 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📖</div>
+								<h3>レシピシートの管理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>商品ごとの材料使用量を管理するシートです</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 レシピシートの項目</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>項目名</th>
+												<th>説明</th>
+												<th>入力例</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>商品名</strong></td>
+												<td>商品データベースと完全一致させる</td>
+												<td>メロンパン</td>
+											</tr>
+											<tr>
+												<td><strong>材料名</strong></td>
+												<td>材料マスターと完全一致させる</td>
+												<td>強力粉</td>
+											</tr>
+											<tr>
+												<td><strong>使用量</strong></td>
+												<td>1個作るのに必要な量</td>
+												<td>0.05</td>
+											</tr>
+											<tr>
+												<td><strong>単位</strong></td>
+												<td>材料の計量単位</td>
+												<td>kg</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>✏️ 新しいレシピの追加方法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>レシピシートの最下行に移動</li>
+										<li>
+											商品名を<strong>商品データベースと完全一致</strong>で入力
+										</li>
+										<li>必要な材料を1行ずつ追加</li>
+										<li>使用量は<strong>1個あたりの量</strong>を入力</li>
+										<li>単位は材料マスターと統一</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⚠️ 商品名・材料名のスペルミスは計算エラーの原因になります
+								</div>
+							</div>
+						</div>
+
+						<!-- 材料マスター管理 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🧱</div>
+								<h3>材料マスターシートの管理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>すべての材料の基本情報を管理するシートです</strong>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 材料マスターシートの項目</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>項目名</th>
+												<th>説明</th>
+												<th>入力例</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>材料名</strong></td>
+												<td>レシピシートと完全一致させる</td>
+												<td>強力粉</td>
+											</tr>
+											<tr>
+												<td><strong>単位</strong></td>
+												<td>基本的な計量単位</td>
+												<td>kg</td>
+											</tr>
+											<tr>
+												<td><strong>入数</strong></td>
+												<td>1ケースに入っている数量</td>
+												<td>25</td>
+											</tr>
+											<tr>
+												<td><strong>ケース単位</strong></td>
+												<td>1ケースの単位</td>
+												<td>kg</td>
+											</tr>
+											<tr>
+												<td><strong>仕入先</strong></td>
+												<td>発注先の会社名</td>
+												<td>○○商事</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>✏️ 新しい材料の追加方法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>材料マスターシートの最下行に移動</li>
+										<li>材料名を入力（レシピで使用する名前と統一）</li>
+										<li>単位、入数、ケース単位、仕入先を入力</li>
+										<li>発注並び順シートにも追加</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									💡 入数とケース単位の設定で発注数が自動計算されます
+								</div>
+							</div>
+						</div>
+
+						<!-- 発注並び順管理 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>発注並び順シートの管理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>実際の発注書と同じ順序で発注表を出力するためのシートです</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📄 並び順の重要性</h4>
+									<p>
+										仕入先ごとに、実際の発注書の項目順序と完全に一致させることで、<br />
+										発注ミスを防ぎ、効率的な発注作業が可能になります。
+									</p>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>✏️ 並び順の更新方法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>仕入先から最新の発注書フォーマットを入手</li>
+										<li>発注並び順シートを開く</li>
+										<li>仕入先別に材料を発注書と同じ順序で並べる</li>
+										<li>新しい材料は適切な位置に挿入</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									🎯 この順序で仕入先別発注表が作成されます
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 発注表作成手順 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📄 発注表作成手順</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">1</div>
+								<h3>週次発注表の作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>毎週決まった曜日に実行する標準的な発注表作成です</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>製造数の確認</strong><br />
+											製造数シートで来週の製造予定を確認
+										</li>
+										<li>
+											<strong>VBAボタンの実行</strong><br />
+											「操作」シートの「発注表作成」ボタンをクリック
+										</li>
+										<li>
+											<strong>計算完了の確認</strong><br />
+											「計算完了」メッセージが表示されるまで待機
+										</li>
+										<li>
+											<strong>発注表の確認</strong><br />
+											発注シートで計算結果を確認
+										</li>
+										<li>
+											<strong>仕入先別発注表の確認</strong><br />
+											仕入先別発注表シートで最終確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 確認ポイント</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>異常に大きな発注数がないか</li>
+										<li>計算エラー（#N/A、#REF!など）がないか</li>
+										<li>新商品の材料が正しく計算されているか</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									⏰ 通常の作成時間：5〜10分
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">2</div>
+								<h3>緊急時の発注表更新</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>製造数変更や新商品追加時の緊急対応です</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>🚨 緊急更新が必要な場面</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>店舗から大幅な個数変更依頼があった時</li>
+										<li>新商品の急な追加が決まった時</li>
+										<li>材料の仕様変更があった時</li>
+										<li>仕入先の変更があった時</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 緊急更新手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>変更内容の確認</strong><br />
+											何がどう変わったかを明確にする
+										</li>
+										<li>
+											<strong>基礎データの更新</strong><br />
+											レシピ・材料マスター・製造数を先に更新
+										</li>
+										<li>
+											<strong>発注表の再作成</strong><br />
+											VBAボタンで発注表を再生成
+										</li>
+										<li>
+											<strong>差分の確認</strong><br />
+											前回との差分を必ず確認
+										</li>
+										<li>
+											<strong>仕入先への連絡</strong><br />
+											変更内容を仕入先に速やかに連絡
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									⚠️ 緊急時こそ慎重に。必ずバックアップを取ってから作業
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">3</div>
+								<h3>発注表の出力と送付</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>作成した発注表を仕入先に送付する手順です</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📄 出力形式の選択</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>Excel形式</strong
+											>：仕入先が編集可能な形式を希望する場合
+										</li>
+										<li>
+											<strong>PDF形式</strong>：レイアウトを固定したい場合
+										</li>
+										<li><strong>印刷</strong>：FAXや郵送で送付する場合</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📧 送付方法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>仕入先別シートの選択</strong><br />
+											送付したい仕入先のシートを選択
+										</li>
+										<li>
+											<strong>ファイル名の設定</strong><br />
+											「発注表_仕入先名_YYYY-MM-DD」の形式
+										</li>
+										<li>
+											<strong>メール送付</strong><br />
+											件名に発注週を明記して送付
+										</li>
+										<li>
+											<strong>送付記録</strong><br />
+											いつ、どこに、何を送ったかを記録
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									📅 毎週○曜日の○時までに送付完了
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 発注表の見方と確認ポイント -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🔍 発注表の見方と確認ポイント</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">📊</div>
+							<h3 class="card__title">発注シートの見方</h3>
+							<div class="card__description">
+								<p><strong>全材料の総合計が表示</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>材料名</li>
+									<li>必要量（kg、個など）</li>
+									<li>ケース単位での発注数</li>
+									<li>仕入先</li>
+								</ul>
+								<div class="badge badge--primary mt-1">
+									📈 全体的な材料使用量を把握
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">🏪</div>
+							<h3 class="card__title">仕入先別発注表の見方</h3>
+							<div class="card__description">
+								<p><strong>実際の発注に使用する表</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>仕入先ごとに分割</li>
+									<li>発注書と同じ並び順</li>
+									<li>発注数がケース単位で表示</li>
+								</ul>
+								<div class="badge badge--success mt-1">
+									✅ そのまま発注書として使用可能
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">⚠️</div>
+							<h3 class="card__title">要確認ポイント</h3>
+							<div class="card__description">
+								<p><strong>発注前に必ずチェック</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>エラー表示（#N/A等）がないか</li>
+									<li>異常に多い/少ない発注数</li>
+									<li>新商品の材料が抜けていないか</li>
+									<li>単位の間違い</li>
+								</ul>
+								<div class="badge badge--error mt-1">
+									🚨 疑問があれば発注前に要確認
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- トラブル対応 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🛠️ よくあるトラブルと対処法</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">❌</div>
+								<h3>#N/A エラーが表示される</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>原因：</strong>商品名または材料名の不一致</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>エラーが出ている商品名をメモ</li>
+										<li>商品データベースで正確な商品名を確認</li>
+										<li>レシピシートの商品名を修正</li>
+										<li>材料名も材料マスターと一致するか確認</li>
+										<li>発注表を再作成</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🔄</div>
+								<h3>VBAが途中で止まる</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>原因：</strong>データの不整合またはメモリ不足</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>Excelを一度閉じて再起動</li>
+										<li>他のアプリケーションを閉じる</li>
+										<li>バックアップファイルから復旧</li>
+										<li>データの整合性をチェック</li>
+										<li>再度VBAを実行</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>発注数が明らかにおかしい</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>原因：</strong>レシピの使用量や製造数の設定ミス</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>該当商品の製造数を確認</li>
+										<li>レシピの使用量が正しいか確認</li>
+										<li>単位（kg、g、個など）が正しいか確認</li>
+										<li>材料マスターの入数設定を確認</li>
+										<li>手計算で検算してみる</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="emergency-contact">
+					<h3>🆘 発注管理に関する重要事項</h3>
+					<p>
+						発注ミスは材料の欠品や過剰在庫につながります。<br />
+						<strong
+							>疑問や不安がある場合は、発注前に必ず確認を取ってください。</strong
+						>
+					</p>
+					<p>特に新商品や大幅な製造数変更時は慎重に対応しましょう。</p>
+				</div>
+			</main>
+
+			<footer>
+				<p>
+					© 2025 パン屋業務マニュアル |
+					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

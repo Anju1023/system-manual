@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>商品データベース管理 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li><a href="system-overview.html">システム構成</a></li>
+					<li><a href="product-management.html" class="active">商品管理</a></li>
+					<li><a href="order-management.html">発注管理</a></li>
+					<li><a href="troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>🍞 商品データベース管理</h1>
+				<p class="subtitle">
+					事務作業者向け - 商品マスターの管理業務完全ガイド
+				</p>
+				<div class="system-overview">
+					<h2>📋 商品データベースの重要性</h2>
+					<p>
+						商品データベースは<strong>システム全体の核となるデータ</strong>です。<br />
+						ここに登録された情報が、製造表・発注表・ラベル・明細書など、すべての業務に影響します。<br />
+						<strong>正確な登録と管理が、円滑な業務運営の基盤</strong
+						>となります。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- 商品データの項目説明 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📊 商品データの項目詳細</h2>
+
+					<div class="system-overview mb-2">
+						<h3>🔍 各項目の役割と入力のポイント</h3>
+						<p>
+							システムが正しく動作するために、各項目の意味と正しい入力方法を理解しましょう。
+						</p>
+					</div>
+
+					<div class="steps__container">
+						<!-- 基本情報項目 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🏷️</div>
+								<h3>基本情報項目</h3>
+							</div>
+							<div class="steps__item-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>項目名</th>
+											<th>説明</th>
+											<th>入力例</th>
+											<th>注意点</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>商品ID</strong></td>
+											<td>カテゴリ頭文字＋4桁数字</td>
+											<td>F0001, B0025</td>
+											<td>一度設定したら変更禁止</td>
+										</tr>
+										<tr>
+											<td><strong>商品名</strong></td>
+											<td>商品の正式名称</td>
+											<td>メロンパン, 食パン1.5斤</td>
+											<td>レシピシートと完全一致必須</td>
+										</tr>
+										<tr>
+											<td><strong>売価</strong></td>
+											<td>主な販売価格</td>
+											<td>180, 250</td>
+											<td>税込み価格で入力</td>
+										</tr>
+										<tr>
+											<td><strong>クリエ売価</strong></td>
+											<td>他社向け販売価格</td>
+											<td>150, 200</td>
+											<td>卸売価格で入力</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- ラベル・識別項目 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🏷️</div>
+								<h3>ラベル・識別項目</h3>
+							</div>
+							<div class="steps__item-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>項目名</th>
+											<th>説明</th>
+											<th>入力例</th>
+											<th>注意点</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>ラベル</strong></td>
+											<td>自社ラベル印刷用番号</td>
+											<td>101, 205</td>
+											<td>ラベル機の設定番号と一致</td>
+										</tr>
+										<tr>
+											<td><strong>クリエラベル</strong></td>
+											<td>他社向けラベル番号</td>
+											<td>301, 402</td>
+											<td>他社仕様に合わせる</td>
+										</tr>
+										<tr>
+											<td><strong>カテゴリ</strong></td>
+											<td>商品の種類分類</td>
+											<td>食パン, 菓子パン, 惣菜パン</td>
+											<td>統一された表記で入力</td>
+										</tr>
+										<tr>
+											<td><strong>金探</strong></td>
+											<td>金属探知機登録番号</td>
+											<td>A001, B015</td>
+											<td>金属探知機の設定と一致</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- 製造関連項目 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⚙️</div>
+								<h3>製造関連項目</h3>
+							</div>
+							<div class="steps__item-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>項目名</th>
+											<th>説明</th>
+											<th>入力例</th>
+											<th>注意点</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>期限</strong></td>
+											<td>消費期限（納品日からの日数）</td>
+											<td>2, 3, 1</td>
+											<td>日数で入力（当日なら0）</td>
+										</tr>
+										<tr>
+											<td><strong>生地名</strong></td>
+											<td>使用する生地の種類</td>
+											<td>食パン生地, メロン生地</td>
+											<td>生地出し表の分類と一致</td>
+										</tr>
+										<tr>
+											<td><strong>並べる表</strong></td>
+											<td>天板並べ表への掲載</td>
+											<td>○, ×</td>
+											<td>○なら並べる表に表示</td>
+										</tr>
+										<tr>
+											<td><strong>生地出し</strong></td>
+											<td>生地出し表への掲載</td>
+											<td>○, ×</td>
+											<td>○なら生地出し表に表示</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- 数量・包装項目 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📦</div>
+								<h3>数量・包装項目</h3>
+							</div>
+							<div class="steps__item-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>項目名</th>
+											<th>説明</th>
+											<th>入力例</th>
+											<th>注意点</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>生地数</strong></td>
+											<td>1個を作るのに必要な生地個数</td>
+											<td>1, 2, 0.5</td>
+											<td>小数での入力も可能</td>
+										</tr>
+										<tr>
+											<td><strong>何個入</strong></td>
+											<td>1パッケージの入数</td>
+											<td>1, 2, 0.5</td>
+											<td>食パン1/2本なら0.5</td>
+										</tr>
+										<tr>
+											<td><strong>最大数</strong></td>
+											<td>1天板に乗せられる最大個数</td>
+											<td>12, 20, 8</td>
+											<td>天板のサイズに応じて設定</td>
+										</tr>
+										<tr>
+											<td><strong>倍数</strong></td>
+											<td>製造時の単位</td>
+											<td>5, 10, 1</td>
+											<td>5個ずつ並べるなら5</td>
+										</tr>
+										<tr>
+											<td><strong>袋</strong></td>
+											<td>使用する包装材の種類</td>
+											<td>A袋, B袋, 食パン袋</td>
+											<td>発注表で材料として計算</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- 管理項目 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>管理項目</h3>
+							</div>
+							<div class="steps__item-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>項目名</th>
+											<th>説明</th>
+											<th>入力例</th>
+											<th>注意点</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>終売</strong></td>
+											<td>販売終了商品のマーク</td>
+											<td>○, 空白</td>
+											<td>○を入れると表に表示されない</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 新商品登録手順 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">✨ 新商品登録手順</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">1</div>
+								<h3>事前準備</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>新商品登録に必要な情報を整理します</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 必要な情報チェックリスト</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>☐ 商品名（正式名称）</li>
+										<li>☐ 販売価格（自社・他社）</li>
+										<li>☐ カテゴリ分類</li>
+										<li>☐ 消費期限（日数）</li>
+										<li>☐ 使用する生地の種類</li>
+										<li>☐ 包装仕様（袋の種類）</li>
+										<li>☐ 製造仕様（生地数、天板最大数など）</li>
+										<li>☐ ラベル印刷番号</li>
+										<li>☐ 金属探知機設定番号</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⚠️ 不明な項目がある場合は、関係部署に確認してから登録
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">2</div>
+								<h3>商品IDの決定</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>カテゴリに応じた一意の商品IDを決定します</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>🏷️ 商品IDの命名規則</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>カテゴリ</th>
+												<th>頭文字</th>
+												<th>例</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>食パン</td>
+												<td>F</td>
+												<td>F0001, F0002...</td>
+											</tr>
+											<tr>
+												<td>菓子パン</td>
+												<td>B</td>
+												<td>B0001, B0002...</td>
+											</tr>
+											<tr>
+												<td>惣菜パン</td>
+												<td>S</td>
+												<td>S0001, S0002...</td>
+											</tr>
+											<tr>
+												<td>その他</td>
+												<td>O</td>
+												<td>O0001, O0002...</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 ID決定手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>該当カテゴリの最新番号を確認</li>
+										<li>次の連番を決定</li>
+										<li>商品データベースで重複していないか確認</li>
+										<li>決定したIDをメモ</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🚨 商品ID重複は絶対禁止！必ず確認
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">3</div>
+								<h3>商品データの入力</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>商品データシートに新商品の情報を入力します</strong>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📝 入力手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>バックアップ作成</strong><br />
+											登録前に必ずファイルのバックアップを作成
+										</li>
+										<li>
+											<strong>商品データシートを開く</strong><br />
+											「商品データ」シートを選択
+										</li>
+										<li>
+											<strong>最下行に移動</strong><br />
+											既存データの最後の行の次に移動
+										</li>
+										<li>
+											<strong>項目ごとに入力</strong><br />
+											左から順番に、各項目を正確に入力
+										</li>
+										<li>
+											<strong>入力内容の確認</strong><br />
+											全項目を再度チェック
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚠️ 入力時の注意点</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品名にスペースや特殊文字が含まれていないか</li>
+										<li>数値項目に文字が混入していないか</li>
+										<li>○×項目は正確に入力されているか</li>
+										<li>既存のカテゴリ・生地名と表記が一致しているか</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									💡 入力後は保存を忘れずに
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">4</div>
+								<h3>関連データの登録</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>新商品に関連する他のデータも合わせて登録します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔗 関連登録項目</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>レシピシート</strong><br />
+											新商品の材料と使用量を登録
+										</li>
+										<li>
+											<strong>各店舗シート</strong><br />
+											取り扱い店舗の納品個数を設定
+										</li>
+										<li>
+											<strong>材料マスター</strong><br />
+											新規材料がある場合は追加
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									✅
+									関連データも同時に整備することで、システム全体の整合性を保つ
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">5</div>
+								<h3>動作確認</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>新商品が正しく各表に反映されるか確認します</strong>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 確認項目</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>製造数表に新商品が表示されるか</li>
+										<li>生地出し表で計算されるか</li>
+										<li>並べる表に表示されるか（○設定の場合）</li>
+										<li>発注表で材料が計算されるか</li>
+										<li>ラベル出し表に表示されるか</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 確認手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>「操作」シートから更新ボタンを実行</li>
+										<li>各表で新商品の表示を確認</li>
+										<li>エラーが発生していないか確認</li>
+										<li>計算結果が正常か確認</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⚠️ エラーがある場合は商品データを見直し
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 終売商品の処理 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📴 終売商品の処理</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>終売設定の実施</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>販売終了となった商品を表示しないように設定します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 終売設定手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li><strong>商品データシートを開く</strong></li>
+										<li>
+											<strong>終売商品を検索</strong><br />
+											Ctrl+Fで商品名を検索
+										</li>
+										<li>
+											<strong>「終売」列に○を入力</strong><br />
+											該当商品の終売列に「○」を入力
+										</li>
+										<li>
+											<strong>保存</strong><br />
+											変更内容を保存
+										</li>
+										<li>
+											<strong>動作確認</strong><br />
+											各表から商品が消えることを確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚠️ 終売設定の注意点</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>完全削除ではなく、非表示処理</li>
+										<li>過去のデータは保持される</li>
+										<li>間違えて設定した場合は○を削除すれば復活</li>
+										<li>関連するレシピデータはそのまま残る</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									🔄 終売設定後は必ず更新ボタンを実行
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🗂️</div>
+								<h3>関連データの整理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>終売商品に関連するデータの整理を行います</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📁 整理対象</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>店舗別納品個数</strong><br />
+											各店舗シートで個数を0に設定
+										</li>
+										<li>
+											<strong>レシピデータ</strong><br />
+											当面は保持（将来的に類似商品で再利用可能）
+										</li>
+										<li>
+											<strong>材料マスター</strong><br />
+											他商品で使用していない材料は要検討
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									📊 データの完全性を保ちながら、業務効率を向上
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 商品情報の変更 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">✏️ 商品情報の変更</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">💰</div>
+							<h3 class="card__title">価格変更</h3>
+							<div class="card__description">
+								<p><strong>売価・クリエ売価の変更</strong></p>
+								<ol style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>該当商品を検索</li>
+									<li>売価またはクリエ売価を修正</li>
+									<li>伝票・ラベル出しへの影響を確認</li>
+								</ol>
+								<div class="badge badge--primary mt-1">
+									💡 価格変更は即座に反映
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📅</div>
+							<h3 class="card__title">期限変更</h3>
+							<div class="card__description">
+								<p><strong>消費期限日数の変更</strong></p>
+								<ol style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>商品データの期限列を修正</li>
+									<li>ラベル出し表の期限計算を確認</li>
+									<li>店舗への周知を忘れずに</li>
+								</ol>
+								<div class="badge badge--warning mt-1">
+									⚠️ 食品安全に関わる重要変更
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📦</div>
+							<h3 class="card__title">包装・仕様変更</h3>
+							<div class="card__description">
+								<p><strong>袋・生地・製造仕様の変更</strong></p>
+								<ol style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>該当項目を修正</li>
+									<li>発注表への影響を確認</li>
+									<li>製造現場への情報共有</li>
+								</ol>
+								<div class="badge badge--success mt-1">
+									🔄 関連表の自動更新を確認
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 店舗からの変更依頼対応 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📞 店舗からの変更依頼対応</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>個数変更依頼の処理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>店舗から納品個数変更の依頼があった場合の対応手順</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📞 変更依頼の受付</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>依頼内容の確認</strong><br />
+											店舗名、商品名、変更前後の個数、適用期間
+										</li>
+										<li>
+											<strong>変更理由の聞き取り</strong><br />
+											一時的な変更か恒久的な変更かを確認
+										</li>
+										<li>
+											<strong>変更可能日の調整</strong><br />
+											製造スケジュールとの調整
+										</li>
+										<li>
+											<strong>依頼内容の記録</strong><br />
+											日時、担当者、変更内容を記録
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>✏️ システムでの変更作業</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>該当店舗シートを開く</strong><br />
+											店舗マスターから該当店舗のシートに移動
+										</li>
+										<li>
+											<strong>商品と日付を特定</strong><br />
+											変更対象の商品と日付を確認
+										</li>
+										<li>
+											<strong>個数を変更</strong><br />
+											新しい個数を入力
+										</li>
+										<li>
+											<strong>製造数への影響確認</strong><br />
+											製造数シートで合計が変わることを確認
+										</li>
+										<li>
+											<strong>更新ボタン実行</strong><br />
+											関連表を最新状態に更新
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⚠️ 大幅な変更は製造・発注に影響するため、関係部署に連絡
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📋</div>
+								<h3>新商品取り扱い開始依頼</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>店舗から新商品の取り扱い開始依頼があった場合</strong>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>✅ 対応手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>商品の確認</strong><br />
+											商品データベースに登録済みか確認
+										</li>
+										<li>
+											<strong>未登録の場合</strong><br />
+											新商品登録手順に従って登録
+										</li>
+										<li>
+											<strong>店舗シートへの追加</strong><br />
+											該当店舗シートに商品と個数を設定
+										</li>
+										<li>
+											<strong>開始日の調整</strong><br />
+											製造・配送体制との調整
+										</li>
+										<li>
+											<strong>関係部署への連絡</strong><br />
+											製造・配送・営業への情報共有
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									🔄 新商品は事前にテスト配送を行うことを推奨
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🚫</div>
+								<h3>商品取り扱い停止依頼</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>特定店舗での商品取り扱い停止依頼への対応</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 停止処理手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>停止理由の確認</strong><br />
+											一時的か恒久的かを明確にする
+										</li>
+										<li>
+											<strong>停止日の調整</strong><br />
+											在庫処理期間を考慮
+										</li>
+										<li>
+											<strong>該当店舗シートで個数を0に設定</strong><br />
+											または行を削除
+										</li>
+										<li>
+											<strong>製造数への影響確認</strong><br />
+											他店舗への影響がないか確認
+										</li>
+										<li>
+											<strong>記録の保持</strong><br />
+											停止理由と日付を記録
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									📊 停止商品のデータは履歴として保持
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- データ管理のベストプラクティス -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🏆 データ管理のベストプラクティス</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">💾</div>
+							<h3 class="card__title">バックアップ管理</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>商品データ変更前は必ずバックアップ</li>
+									<li>日付入りファイル名で管理</li>
+									<li>最低1週間分は保持</li>
+									<li>重要変更時は複数箇所に保存</li>
+								</ul>
+								<div class="badge badge--error mt-1">
+									🚨 バックアップは業務継続の生命線
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📝</div>
+							<h3 class="card__title">変更記録の管理</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>変更日時と担当者を記録</li>
+									<li>変更理由を明記</li>
+									<li>影響範囲を文書化</li>
+									<li>承認者の記録</li>
+								</ul>
+								<div class="badge badge--primary mt-1">
+									📋 変更履歴は品質管理の基本
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">🔍</div>
+							<h3 class="card__title">定期的な データ監査</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>月1回のデータ整合性チェック</li>
+									<li>重複データの確認</li>
+									<li>未使用商品の洗い出し</li>
+									<li>エラーデータの修正</li>
+								</ul>
+								<div class="badge badge--success mt-1">
+									✅ 定期監査でシステムの健全性を維持
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">👥</div>
+							<h3 class="card__title">情報共有の徹底</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>新商品情報の関係部署共有</li>
+									<li>価格変更の事前通知</li>
+									<li>終売予定の早期アナウンス</li>
+									<li>システム変更の周知</li>
+								</ul>
+								<div class="badge badge--warning mt-1">
+									📢 情報共有不足はトラブルの元
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- よくあるエラーと対処法 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🛠️ よくあるエラーと対処法</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">❌</div>
+								<h3>商品IDの重複エラー</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>同じ商品IDが複数存在してシステムが正常動作しない
+								</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品データシートで商品IDでソート</li>
+										<li>重複している商品IDを特定</li>
+										<li>どちらが正しいデータか確認</li>
+										<li>不要な方のIDを変更または削除</li>
+										<li>関連データの整合性を確認</li>
+									</ol>
+								</div>
+								<div class="badge badge--error mt-1">
+									🚨 重複IDは即座に修正が必要
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🔤</div>
+								<h3>商品名の不一致エラー</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>レシピや発注表で商品が正しく表示されない
+								</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品データベースの正確な商品名を確認</li>
+										<li>レシピシートの商品名と比較</li>
+										<li>
+											スペース、文字種（ひらがな/カタカナ）の違いをチェック
+										</li>
+										<li>不一致箇所を統一</li>
+										<li>VLOOKUPエラーが解消されることを確認</li>
+									</ol>
+								</div>
+								<div class="badge badge--warning mt-1">
+									🔍 文字の微細な違いに注意
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>計算結果の異常</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>症状：</strong>製造数や発注量が明らかにおかしい</p>
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>該当商品の基本データをチェック</li>
+										<li>生地数、何個入、倍数の設定を確認</li>
+										<li>単位の間違い（kg/g）がないか確認</li>
+										<li>数式の参照先が正しいか確認</li>
+										<li>手計算で検算</li>
+									</ol>
+								</div>
+								<div class="badge badge--primary mt-1">
+									🧮 疑問があれば必ず検算
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="emergency-contact">
+					<h3>🆘 商品データベース管理の重要事項</h3>
+					<p>
+						商品データベースはシステム全体の基盤です。<br />
+						<strong
+							>変更作業は慎重に行い、不明な点は必ず確認してください。</strong
+						>
+					</p>
+					<p>
+						データの整合性が崩れると、製造・発注・配送すべてに影響します。<br />
+						<strong>「分からない時は聞く」「確信がない時は確認する」</strong
+						>を徹底しましょう。
+					</p>
+				</div>
+			</main>
+
+			<footer>
+				<p>
+					© 2025 パン屋業務マニュアル |
+					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
