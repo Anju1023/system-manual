@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>各種帳票作成 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<button class="nav__toggle" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li><a href="system-overview.html">システム構成</a></li>
+					<li><a href="product-management.html">商品管理</a></li>
+					<li><a href="order-management.html">発注管理</a></li>
+					<li><a href="production-management.html">製造数管理</a></li>
+					<li><a href="reports.html" class="active">各種帳票作成</a></li>
+					<li><a href="troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>📄 各種帳票作成</h1>
+				<p class="subtitle">事務作業者向け - 日々の帳票作成業務完全ガイド</p>
+				<div class="system-overview">
+					<h2>📋 帳票作成システムについて</h2>
+					<p>
+						製造データから<strong>明細書・納品記録・ラベル出し表・棚卸表</strong>など、業務に必要な各種帳票を自動作成するシステムです。<br />
+						正確で効率的な帳票管理により、<strong>スムーズな業務運営と品質管理</strong>を実現します。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- 帳票の種類と用途 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📊 帳票の種類と用途</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">📋</div>
+							<h3 class="card__title">日常業務帳票</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li><strong>明細書</strong> - 納品内容の確認</li>
+									<li><strong>納品記録PDF</strong> - 配送実績の記録</li>
+									<li><strong>天板個数表</strong> - 製造指示書</li>
+								</ul>
+								<div class="badge badge--primary mt-1">📅 毎日作成</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">🏷️</div>
+							<h3 class="card__title">ラベル関連帳票</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li><strong>ラベル出し表</strong> - 自社用ラベル印刷</li>
+									<li><strong>クリエラベル出し表</strong> - 他社用ラベル</li>
+									<li><strong>消費期限チェック表</strong> - 期限管理</li>
+								</ul>
+								<div class="badge badge--warning mt-1">⏰ 週次作成</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📊</div>
+							<h3 class="card__title">管理業務帳票</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li><strong>棚卸表</strong> - 在庫管理用</li>
+									<li><strong>商品別個数表</strong> - 売上分析用</li>
+									<li><strong>シフト表</strong> - 人員管理用</li>
+								</ul>
+								<div class="badge badge--success mt-1">📈 月次作成</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 日常業務帳票の作成 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📅 日常業務帳票の作成</h2>
+
+					<div class="steps__container">
+						<!-- 天板個数表作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>今日の天板個数表作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>製造現場で使用する当日の天板配置指示表を作成します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成タイミング</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>製造開始前（前日夜または当日朝）</li>
+										<li>緊急の個数変更があった場合</li>
+										<li>設備トラブル等で製造計画が変更された場合</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>「操作」シートを開く</strong><br />
+											VBA操作用のシートに移動
+										</li>
+										<li>
+											<strong>日付の確認</strong><br />
+											作成対象の日付が正しく設定されているか確認
+										</li>
+										<li>
+											<strong>「天板個数表作成」ボタンをクリック</strong><br />
+											当日分の天板配置表を自動生成
+										</li>
+										<li>
+											<strong>内容の確認</strong><br />
+											商品名、個数、天板枚数が正しいか確認
+										</li>
+										<li>
+											<strong>印刷またはPDF出力</strong><br />
+											製造現場に配布
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 確認ポイント</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>項目</th>
+												<th>確認内容</th>
+												<th>注意点</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>商品名</strong></td>
+												<td>製造予定の商品が全て表示</td>
+												<td>新商品の漏れがないか</td>
+											</tr>
+											<tr>
+												<td><strong>個数</strong></td>
+												<td>店舗注文の合計と一致</td>
+												<td>異常に多い/少ない個数</td>
+											</tr>
+											<tr>
+												<td><strong>天板枚数</strong></td>
+												<td>効率的な配置になっている</td>
+												<td>設備能力内に収まっている</td>
+											</tr>
+											<tr>
+												<td><strong>並べ方</strong></td>
+												<td>最適な配置指示</td>
+												<td>作業効率を考慮</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									⏰ 作成時間：約2-3分
+								</div>
+							</div>
+						</div>
+
+						<!-- 明細書作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📄</div>
+								<h3>明細書作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>各店舗への納品内容を記載した明細書を作成します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📊 明細書の種類</h4>
+									<div
+										style="
+											display: grid;
+											grid-template-columns: repeat(
+												auto-fit,
+												minmax(250px, 1fr)
+											);
+											gap: 1rem;
+										"
+									>
+										<div
+											style="
+												background: #e3f2fd;
+												border-left: 4px solid #1976d2;
+												padding: 1rem;
+												border-radius: 8px;
+											"
+										>
+											<h4 style="color: #1976d2; margin-bottom: 0.5rem">
+												📋 伝票用明細書
+											</h4>
+											<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+												<strong>自社店舗向け</strong>
+											</p>
+											<ul
+												style="
+													font-size: 0.8rem;
+													margin-left: 1.5rem;
+													color: #666;
+												"
+											>
+												<li>商品名、個数、売価</li>
+												<li>店舗別に分割</li>
+												<li>金額確認用</li>
+											</ul>
+										</div>
+										<div
+											style="
+												background: #f3e5f5;
+												border-left: 4px solid #7b1fa2;
+												padding: 1rem;
+												border-radius: 8px;
+											"
+										>
+											<h4 style="color: #7b1fa2; margin-bottom: 0.5rem">
+												📋 クリエ伝票用明細書
+											</h4>
+											<p style="font-size: 0.9rem; margin-bottom: 0.5rem">
+												<strong>他社店舗向け</strong>
+											</p>
+											<ul
+												style="
+													font-size: 0.8rem;
+													margin-left: 1.5rem;
+													color: #666;
+												"
+											>
+												<li>商品名、個数、クリエ売価</li>
+												<li>他社仕様に対応</li>
+												<li>卸売価格で計算</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>対象日の確認</strong><br />
+											明細書を作成する納品日を確認
+										</li>
+										<li>
+											<strong
+												>「伝票用」または「クリエ伝票用」シートを確認</strong
+											><br />
+											数式により自動計算された内容を確認
+										</li>
+										<li>
+											<strong>金額の確認</strong><br />
+											個数×単価の計算が正しいか確認
+										</li>
+										<li>
+											<strong>印刷設定</strong><br />
+											店舗別に分けて印刷
+										</li>
+										<li>
+											<strong>配布準備</strong><br />
+											パートスタッフが事務所に取りに来る準備
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									💰 金額計算は自動、手作業なし
+								</div>
+							</div>
+						</div>
+
+						<!-- 納品記録PDF作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📑</div>
+								<h3>納品記録PDF作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>配送実績を記録するためのPDFファイルを作成します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📄 納品記録PDFの用途</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>配送業者への引き渡し記録</li>
+										<li>納品完了の証跡管理</li>
+										<li>売上データとの照合</li>
+										<li>トラブル時の調査資料</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>納品記録ファイルを開く</strong><br />
+											専用の納品記録.xlsxファイルを開く
+										</li>
+										<li>
+											<strong>対象日のデータ確認</strong><br />
+											納品予定データが正しく表示されているか確認
+										</li>
+										<li>
+											<strong>VBAでPDF出力実行</strong><br />
+											「PDF作成」ボタンをクリック
+										</li>
+										<li>
+											<strong>ファイル名の設定</strong><br />
+											「納品記録_YYYY-MM-DD.pdf」形式で保存
+										</li>
+										<li>
+											<strong>内容の最終確認</strong><br />
+											PDFの内容が正しく出力されているか確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📁 ファイル管理</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>保存場所</strong
+											>：決められたフォルダに日付順で保存
+										</li>
+										<li><strong>命名規則</strong>：納品記録_YYYY-MM-DD.pdf</li>
+										<li><strong>保存期間</strong>：最低1年間は保持</li>
+										<li>
+											<strong>バックアップ</strong
+											>：重要書類なので複数箇所に保存
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									📝 法的書類として重要、紛失注意
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ラベル関連帳票の作成 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🏷️ ラベル関連帳票の作成</h2>
+
+					<div class="steps__container">
+						<!-- ラベル出し表作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🏷️</div>
+								<h3>ラベル出し表作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>商品ラベルの印刷に必要な情報をまとめた表を作成します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 ラベル出し表の項目</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>項目</th>
+												<th>内容</th>
+												<th>自動計算</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>商品名</strong></td>
+												<td>ラベルに印刷する商品名</td>
+												<td>商品データベースから取得</td>
+											</tr>
+											<tr>
+												<td><strong>呼び出し番号</strong></td>
+												<td>ラベル印刷機の設定番号</td>
+												<td>商品データから自動設定</td>
+											</tr>
+											<tr>
+												<td><strong>売価</strong></td>
+												<td>販売価格</td>
+												<td>自社/他社に応じて自動選択</td>
+											</tr>
+											<tr>
+												<td><strong>消費期限</strong></td>
+												<td>期限日</td>
+												<td>納品日+設定日数で自動計算</td>
+											</tr>
+											<tr>
+												<td><strong>個数</strong></td>
+												<td>必要ラベル枚数</td>
+												<td>製造数から自動算出</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>製造数の更新確認</strong><br />
+											最新の製造数で計算されているか確認
+										</li>
+										<li>
+											<strong>「操作」シートから「ラベル表作成」実行</strong
+											><br />
+											VBAでラベル出し表を一括生成
+										</li>
+										<li>
+											<strong>「ラベル出し」シートで内容確認</strong><br />
+											自社用ラベル表の内容をチェック
+										</li>
+										<li>
+											<strong>「クリエラベル出し」シートで内容確認</strong
+											><br />
+											他社用ラベル表の内容をチェック
+										</li>
+										<li>
+											<strong>消費期限の確認</strong><br />
+											期限計算が正しいか重点確認
+										</li>
+										<li>
+											<strong>印刷・ラベル作成準備</strong><br />
+											ラベル印刷担当へ表を渡す
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚠️ 重要確認事項</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>消費期限計算</strong>：食品安全に直結する重要項目
+										</li>
+										<li>
+											<strong>呼び出し番号</strong
+											>：ラベル印刷機の設定と一致確認
+										</li>
+										<li><strong>価格</strong>：自社用と他社用の価格設定確認</li>
+										<li><strong>個数</strong>：不足/過剰がないか確認</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🚨 消費期限エラーは絶対禁止
+								</div>
+							</div>
+						</div>
+
+						<!-- 消費期限チェック -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📅</div>
+								<h3>消費期限チェック表活用</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>消費期限の設定と計算が正しく行われているかを確認します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 チェック項目</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>期限設定値</strong
+											>：商品データベースの期限日数設定
+										</li>
+										<li>
+											<strong>計算結果</strong>：納品日+期限日数の計算結果
+										</li>
+										<li>
+											<strong>曜日確認</strong
+											>：期限日が適切な曜日になっているか
+										</li>
+										<li>
+											<strong>特殊商品</strong>：当日消費商品（期限=0）の確認
+										</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 チェック手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>商品データベースで期限設定確認</strong><br />
+											各商品の期限日数が正しく設定されているか
+										</li>
+										<li>
+											<strong>ラベル出し表で計算結果確認</strong><br />
+											期限日の計算が正しく行われているか
+										</li>
+										<li>
+											<strong>特殊ケースの確認</strong><br />
+											祝日、連休時の期限設定に問題がないか
+										</li>
+										<li>
+											<strong>店舗別の期限確認</strong><br />
+											配送日の違いによる期限の調整
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⏰ 週1回の定期チェックを推奨
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 管理業務帳票の作成 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📊 管理業務帳票の作成</h2>
+
+					<div class="steps__container">
+						<!-- シフト表作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">👥</div>
+								<h3>シフト表作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>月次のスタッフシフト表を作成・管理します</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📅 シフト表の作成タイミング</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>毎月25日頃：翌月のシフト表作成開始</li>
+										<li>月末：シフト表の確定・配布</li>
+										<li>随時：急な変更への対応</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成・管理手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>前月実績の確認</strong><br />
+											出勤状況、残業時間、休暇取得状況を確認
+										</li>
+										<li>
+											<strong>翌月の予定確認</strong><br />
+											休暇希望、研修予定、イベント等を把握
+										</li>
+										<li>
+											<strong>製造計画との調整</strong><br />
+											忙しい日の人員確保、閑散期の調整
+										</li>
+										<li>
+											<strong>シフト表の作成</strong><br />
+											Excelテンプレートまたは専用ソフトで作成
+										</li>
+										<li>
+											<strong>スタッフへの確認</strong><br />
+											作成したシフトをスタッフに確認してもらう
+										</li>
+										<li>
+											<strong>最終調整・確定</strong><br />
+											調整要望を反映して最終版を作成
+										</li>
+										<li>
+											<strong>配布・掲示</strong><br />
+											休憩室への掲示とデータ配布
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚖️ シフト作成のポイント</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>法令遵守</strong>：労働基準法の休憩・休日規定
+										</li>
+										<li><strong>公平性</strong>：休日、夜勤、残業の負担分散</li>
+										<li><strong>効率性</strong>：製造ピーク時の人員確保</li>
+										<li><strong>柔軟性</strong>：急な変更への対応力</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									👥 スタッフ満足度と業務効率の両立
+								</div>
+							</div>
+						</div>
+
+						<!-- 棚卸表作成 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📦</div>
+								<h3>棚卸表作成・本社メール送付</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>月次棚卸のための在庫表を作成し、本社に報告します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📅 棚卸のスケジュール</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li><strong>棚卸実施日</strong>：毎月月末（営業終了後）</li>
+										<li><strong>データ作成</strong>：棚卸翌日</li>
+										<li><strong>本社報告期限</strong>：毎月○日まで</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 棚卸表作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>棚卸表テンプレートの準備</strong><br />
+											月次棚卸用のExcelテンプレートを開く
+										</li>
+										<li>
+											<strong>材料一覧の更新</strong><br />
+											当月使用材料の一覧を最新化
+										</li>
+										<li>
+											<strong>実地棚卸の実施</strong><br />
+											製造現場で実際の在庫数をカウント
+										</li>
+										<li>
+											<strong>データ入力</strong><br />
+											カウント結果を棚卸表に入力
+										</li>
+										<li>
+											<strong>差異の確認</strong><br />
+											理論在庫と実在庫の差異を確認
+										</li>
+										<li>
+											<strong>差異原因の調査</strong><br />
+											大きな差異がある場合は原因を調査
+										</li>
+										<li>
+											<strong>棚卸表の完成</strong><br />
+											必要項目をすべて記入して完成
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📧 本社への報告手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>メール件名の設定</strong><br />
+											「【製造センター】YYYY年MM月棚卸表」
+										</li>
+										<li>
+											<strong>棚卸表の添付</strong><br />
+											完成した棚卸表をExcelファイルで添付
+										</li>
+										<li>
+											<strong>差異報告書の添付</strong><br />
+											大きな差異がある場合は理由書も添付
+										</li>
+										<li>
+											<strong>メール本文の作成</strong><br />
+											棚卸実施日、特記事項を記載
+										</li>
+										<li>
+											<strong>送信・送信確認</strong><br />
+											指定アドレスに送信し、受信確認を取る
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 棚卸時の注意点</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>正確性重視</strong>：手抜きせず丁寧にカウント
+										</li>
+										<li>
+											<strong>複数人確認</strong>：重要材料は複数人でチェック
+										</li>
+										<li>
+											<strong>単位統一</strong>：kg、個、パックなど単位を統一
+										</li>
+										<li><strong>記録保持</strong>：棚卸表は1年間保管</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									📊 正確な在庫管理で経営判断をサポート
+								</div>
+							</div>
+						</div>
+
+						<!-- 商品別個数表 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📈</div>
+								<h3>商品別個数表作成</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong
+										>売上分析や製造計画見直しのための商品別データを作成します</strong
+									>
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📊 商品別個数表の用途</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品別売上動向の分析</li>
+										<li>人気商品・不人気商品の把握</li>
+										<li>季節変動の分析</li>
+										<li>新商品の売れ行き確認</li>
+										<li>製造計画の見直し資料</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 作成手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>集計期間の設定</strong><br />
+											週次、月次、四半期など分析目的に応じて設定
+										</li>
+										<li>
+											<strong>データの抽出</strong><br />
+											各店舗シートから該当期間のデータを抽出
+										</li>
+										<li>
+											<strong>商品別集計</strong><br />
+											商品ごとに全店舗の個数を合計
+										</li>
+										<li>
+											<strong>カテゴリ別分析</strong><br />
+											食パン、菓子パンなどカテゴリ別にも集計
+										</li>
+										<li>
+											<strong>前年同期比較</strong><br />
+											可能であれば前年同期との比較も実施
+										</li>
+										<li>
+											<strong>グラフ化</strong><br />
+											視覚的に分かりやすいグラフを作成
+										</li>
+										<li>
+											<strong>分析コメント</strong><br />
+											数値の特徴や傾向をコメントとして追加
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									📈 データに基づく戦略的意思決定
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 帳票の印刷・配布管理 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🖨️ 帳票の印刷・配布管理</h2>
+
+					<div class="cards-grid">
+						<div class="card">
+							<div class="card__icon">📅</div>
+							<h3 class="card__title">日次印刷物</h3>
+							<div class="card__description">
+								<p><strong>毎日印刷・配布する帳票</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>天板個数表（製造現場）</li>
+									<li>明細書（パートスタッフ）</li>
+									<li>当日の生地出し表</li>
+								</ul>
+								<div class="badge badge--primary mt-1">
+									📍 各部署の決められた場所に配布
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📊</div>
+							<h3 class="card__title">週次印刷物</h3>
+							<div class="card__description">
+								<p><strong>週1回印刷・配布する帳票</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>1週間分の製造表（厨房掲示）</li>
+									<li>ラベル出し表</li>
+									<li>商品別個数表</li>
+									<li>発注表（仕入先別）</li>
+								</ul>
+								<div class="badge badge--success mt-1">
+									📋 前週金曜日までに準備完了
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card__icon">📈</div>
+							<h3 class="card__title">月次印刷物</h3>
+							<div class="card__description">
+								<p><strong>月1回作成・提出する帳票</strong></p>
+								<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+									<li>シフト表（休憩室掲示）</li>
+									<li>棚卸表（本社メール）</li>
+									<li>月次売上分析資料</li>
+								</ul>
+								<div class="badge badge--warning mt-1">⏰ 期限厳守で作成</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 帳票管理のベストプラクティス -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🏆 帳票管理のベストプラクティス</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📁</div>
+								<h3>ファイル管理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>帳票ファイルの効率的な管理方法</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>📂 フォルダ構成</h4>
+									<div
+										style="
+											background: #f8f9fa;
+											padding: 1rem;
+											border-radius: 8px;
+											font-family: monospace;
+											font-size: 0.9rem;
+										"
+									>
+										📁 帳票管理/<br />
+										├── 📁 日次帳票/<br />
+										│ ├── 📁 2025/<br />
+										│ │ ├── 📁 01月/<br />
+										│ │ └── 📁 02月/<br />
+										├── 📁 週次帳票/<br />
+										├── 📁 月次帳票/<br />
+										├── 📁 年次帳票/<br />
+										└── 📁 テンプレート/
+									</div>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🏷️ 命名規則</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li><strong>日次</strong>：YYYY-MM-DD_帳票名.xlsx</li>
+										<li><strong>週次</strong>：YYYY-週番号_帳票名.xlsx</li>
+										<li><strong>月次</strong>：YYYY-MM_帳票名.xlsx</li>
+										<li>
+											<strong>バックアップ</strong
+											>：元ファイル名_bak_YYYYMMDD.xlsx
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									🗂️ 統一ルールで誰でも管理可能
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🔍</div>
+								<h3>品質管理</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>帳票の正確性を保つためのチェック体制</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>✅ チェックリスト</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>確認項目</th>
+												<th>チェック内容</th>
+												<th>頻度</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>数値の正確性</strong></td>
+												<td>計算結果、転記ミス</td>
+												<td>毎回</td>
+											</tr>
+											<tr>
+												<td><strong>日付の確認</strong></td>
+												<td>対象期間、作成日</td>
+												<td>毎回</td>
+											</tr>
+											<tr>
+												<td><strong>単位の統一</strong></td>
+												<td>kg、個、円など</td>
+												<td>毎回</td>
+											</tr>
+											<tr>
+												<td><strong>フォーマット</strong></td>
+												<td>レイアウト、項目名</td>
+												<td>週次</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									🎯 ダブルチェック体制で品質向上
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⏰</div>
+								<h3>効率化のポイント</h3>
+							</div>
+							<div class="steps__item-content">
+								<p><strong>帳票作成業務の効率化テクニック</strong></p>
+
+								<div class="system-overview mt-1">
+									<h4>🚀 効率化テクニック</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>テンプレート活用</strong><br />
+											よく使う帳票はテンプレート化
+										</li>
+										<li>
+											<strong>VBA自動化</strong><br />
+											繰り返し作業はマクロで自動化
+										</li>
+										<li>
+											<strong>ショートカット活用</strong><br />
+											Excel操作のショートカットキーを覚える
+										</li>
+										<li>
+											<strong>バッチ処理</strong><br />
+											同種の作業はまとめて実行
+										</li>
+										<li>
+											<strong>定期作業の標準化</strong><br />
+											手順書を作成して作業を標準化
+										</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📅 作業スケジュール管理</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>月初に月間スケジュールを確認</li>
+										<li>週初に週間予定を立てる</li>
+										<li>前日に翌日の作業を準備</li>
+										<li>完了した作業はチェックリストで管理</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--success mt-1">
+									⚡ 計画的な作業で品質と効率を両立
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- よくあるトラブルと対処法 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🛠️ よくあるトラブルと対処法</h2>
+
+					<div class="steps__container">
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🖨️</div>
+								<h3>印刷関連のトラブル</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>帳票が正しく印刷されない、レイアウトが崩れる
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>プリンター設定の確認</strong><br />
+											用紙サイズ、印刷品質、カラー設定
+										</li>
+										<li>
+											<strong>印刷プレビューで事前確認</strong><br />
+											実際に印刷する前にプレビューでチェック
+										</li>
+										<li>
+											<strong>改ページの調整</strong><br />
+											Excelの改ページプレビューで調整
+										</li>
+										<li>
+											<strong>余白の調整</strong><br />
+											ページ設定で余白を適切に設定
+										</li>
+										<li>
+											<strong>PDF出力の活用</strong><br />
+											レイアウト固定が必要な場合はPDF経由
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>データ不整合</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>帳票間で数値が一致しない、計算結果がおかしい
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>元データの確認</strong><br />
+											商品データベース、店舗データの整合性確認
+										</li>
+										<li>
+											<strong>更新タイミングの確認</strong><br />
+											最新データで帳票が作成されているか確認
+										</li>
+										<li>
+											<strong>数式の検証</strong><br />
+											計算式が正しく設定されているか確認
+										</li>
+										<li>
+											<strong>手計算での検証</strong><br />
+											疑問のある数値を手計算で検証
+										</li>
+										<li>
+											<strong>バックアップからの復旧</strong><br />
+											問題が解決しない場合は前日データから復旧
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⏰</div>
+								<h3>作業遅延</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>帳票作成が期限に間に合わない、作業が滞る
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処法</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>優先順位の整理</strong><br />
+											緊急度・重要度に応じて作業順序を決定
+										</li>
+										<li>
+											<strong>作業の分割</strong><br />
+											大きな作業を小分けして進捗を見える化
+										</li>
+										<li>
+											<strong>他部署との調整</strong><br />
+											関係部署に遅延の可能性を早めに連絡
+										</li>
+										<li>
+											<strong>作業手順の見直し</strong><br />
+											効率化できる部分がないか再検討
+										</li>
+										<li>
+											<strong>応援要請</strong><br />
+											必要に応じて他のスタッフに協力を依頼
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="emergency-contact">
+					<h3>🆘 帳票作成業務の重要事項</h3>
+					<p>
+						帳票は業務の証跡となる重要な書類です。<br />
+						<strong
+							>正確性と期限遵守を最優先に、丁寧な作業を心がけてください。</strong
+						>
+					</p>
+					<p>
+						特に消費期限や金額に関わる帳票は、<strong>間違いが重大な問題につながる</strong>可能性があります。<br />
+						不明な点や疑問がある場合は、<strong
+							>必ず確認を取ってから作業を進めてください。</strong
+						>
+					</p>
+				</div>
+			</main>
+
+			<footer>
+				<p>
+					© 2025 パン屋業務マニュアル |
+					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
+				</p>
+			</footer>
+		</div>
+
+		<script>
+			function toggleNav() {
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
+
+				toggle.classList.toggle('active');
+				links.classList.toggle('active');
+			}
+
+			// メニュー外クリックで閉じる
+			document.addEventListener('click', function (e) {
+				const nav = document.querySelector('.nav__container');
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
+
+				if (!nav.contains(e.target)) {
+					toggle.classList.remove('active');
+					links.classList.remove('active');
+				}
+			});
+		</script>
+	</body>
+</html>

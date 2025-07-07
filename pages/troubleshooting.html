@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>トラブル対応 | パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="../assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<button class="nav__toggle" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav__links">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="daily-operations.html">日常操作</a></li>
+					<li><a href="system-overview.html">システム構成</a></li>
+					<li><a href="product-management.html">商品管理</a></li>
+					<li><a href="order-management.html">発注管理</a></li>
+					<li><a href="production-management.html">製造数管理</a></li>
+					<li><a href="reports.html">各種帳票作成</a></li>
+					<li>
+						<a href="troubleshooting.html" class="active">トラブル対応</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<header>
+				<h1>🆘 トラブル対応</h1>
+				<p class="subtitle">全員向け - 困った時の解決策とサポート体制</p>
+				<div class="system-overview">
+					<h2>📋 トラブル対応について</h2>
+					<p>
+						パン屋業務システムで発生する<strong>よくあるトラブルの解決方法</strong>をまとめています。<br />
+						基本的な対処法から緊急時の連絡体制まで、<strong>困った時にすぐに使える実践的な情報</strong>を提供します。
+					</p>
+				</div>
+			</header>
+
+			<main>
+				<!-- 緊急度別対応 -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">🚨 緊急度別対応</h2>
+
+					<div class="cards-grid">
+						<div class="card" style="border-left: 4px solid #ff6b6b">
+							<div class="card__icon" style="background: #ff6b6b">🚨</div>
+							<h3 class="card__title">緊急（即座に対応）</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>製造ストップにつながるエラー</li>
+									<li>納品に影響するデータ破損</li>
+									<li>食品安全に関わる問題</li>
+									<li>システム全体の動作不能</li>
+								</ul>
+								<div class="badge badge--error mt-1">⏰ 即座に責任者に連絡</div>
+							</div>
+						</div>
+
+						<div class="card" style="border-left: 4px solid #ffc107">
+							<div class="card__icon" style="background: #ffc107">⚠️</div>
+							<h3 class="card__title">重要（当日中に対応）</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>一部機能の動作不良</li>
+									<li>印刷・出力関連の問題</li>
+									<li>データの不整合</li>
+									<li>作業効率に影響する不具合</li>
+								</ul>
+								<div class="badge badge--warning mt-1">📞 営業時間内に相談</div>
+							</div>
+						</div>
+
+						<div class="card" style="border-left: 4px solid #28a745">
+							<div class="card__icon" style="background: #28a745">💡</div>
+							<h3 class="card__title">通常（翌営業日までに対応）</h3>
+							<div class="card__description">
+								<ul style="margin-left: 1.5rem">
+									<li>操作方法の質問</li>
+									<li>レイアウトの調整</li>
+									<li>新機能の要望</li>
+									<li>効率化の相談</li>
+								</ul>
+								<div class="badge badge--success mt-1">
+									📝 メールまたは翌日相談
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Excel・VBA関連のトラブル -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📊 Excel・VBA関連のトラブル</h2>
+
+					<div class="steps__container">
+						<!-- VBAエラー -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⚡</div>
+								<h3>VBAマクロが動かない</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>ボタンを押してもマクロが実行されない、エラーが出る
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 よくある原因</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>マクロが無効になっている</li>
+										<li>ファイルが破損している</li>
+										<li>メモリ不足</li>
+										<li>他のプロセスがファイルを使用中</li>
+									</ul>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>マクロ設定の確認</strong><br />
+											ファイル→オプション→トラストセンター→マクロの設定
+										</li>
+										<li>
+											<strong>Excelの再起動</strong><br />
+											Excel を完全に終了して再起動
+										</li>
+										<li>
+											<strong>パソコンの再起動</strong><br />
+											メモリをクリアして再起動
+										</li>
+										<li>
+											<strong>バックアップファイルで確認</strong><br />
+											前日のバックアップで同じエラーが出るか確認
+										</li>
+										<li>
+											<strong>セーフモードで起動</strong><br />
+											Excel をセーフモードで起動して確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🚨 解決しない場合は即座に連絡
+								</div>
+							</div>
+						</div>
+
+						<!-- 計算エラー -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🧮</div>
+								<h3>計算結果がおかしい（#N/A、#REF!等）</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>セルに#N/A、#REF!、#VALUE!などのエラーが表示される
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>📋 エラーの種類と意味</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>エラー</th>
+												<th>意味</th>
+												<th>主な原因</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>#N/A</strong></td>
+												<td>値が見つからない</td>
+												<td>VLOOKUP で参照先が見つからない</td>
+											</tr>
+											<tr>
+												<td><strong>#REF!</strong></td>
+												<td>参照が無効</td>
+												<td>参照先のセルが削除された</td>
+											</tr>
+											<tr>
+												<td><strong>#VALUE!</strong></td>
+												<td>値の型が間違い</td>
+												<td>数値のセルに文字が入っている</td>
+											</tr>
+											<tr>
+												<td><strong>#DIV/0!</strong></td>
+												<td>ゼロ除算エラー</td>
+												<td>0で割り算をしている</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>エラーの種類を確認</strong><br />
+											どのエラーが出ているかを確認
+										</li>
+										<li>
+											<strong>数式の確認</strong><br />
+											エラーのセルの数式を確認
+										</li>
+										<li>
+											<strong>参照先の確認</strong><br />
+											VLOOKUP の参照先データを確認
+										</li>
+										<li>
+											<strong>データの整合性確認</strong><br />
+											商品名、店舗名の表記統一を確認
+										</li>
+										<li>
+											<strong>強制再計算</strong><br />
+											Ctrl+Shift+Alt+F9 で強制再計算
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									🔍 #N/Aエラーは商品名の不一致が最多
+								</div>
+							</div>
+						</div>
+
+						<!-- ファイルが開けない -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📂</div>
+								<h3>ファイルが開けない・破損している</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>Excelファイルが開けない、「ファイルが破損している」と表示される
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 復旧手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>別の方法で開く</strong><br />
+											Excel→ファイル→開く→修復して開く
+										</li>
+										<li>
+											<strong>バックアップファイルの確認</strong><br />
+											前日・前回保存のバックアップを探す
+										</li>
+										<li>
+											<strong>自動回復ファイルの確認</strong><br />
+											Excel の自動回復ファイルを確認
+										</li>
+										<li>
+											<strong>別の PC で開く</strong><br />
+											他の PC で開けるか確認
+										</li>
+										<li>
+											<strong>専用ツールでの復旧</strong><br />
+											Excel 修復ツールを使用
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>💾 予防策</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>定期的なバックアップ（毎日実施）</li>
+										<li>複数箇所への保存</li>
+										<li>自動保存機能の有効化</li>
+										<li>ファイルサイズの監視（異常な肥大化に注意）</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🆘 復旧不可能な場合は緊急事態
+								</div>
+							</div>
+						</div>
+
+						<!-- 印刷トラブル -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🖨️</div>
+								<h3>印刷がうまくいかない</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>印刷されない、レイアウトが崩れる、文字が切れる
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>プリンターの状態確認</strong><br />
+											電源、用紙、トナー、エラーランプ
+										</li>
+										<li>
+											<strong>印刷プレビューで確認</strong><br />
+											実際の印刷前にプレビューで確認
+										</li>
+										<li>
+											<strong>ページ設定の確認</strong><br />
+											用紙サイズ、余白、拡大縮小設定
+										</li>
+										<li>
+											<strong>プリンタードライバーの更新</strong><br />
+											最新のドライバーに更新
+										</li>
+										<li>
+											<strong>PDF経由での印刷</strong><br />
+											一度PDFに出力してから印刷
+										</li>
+									</ol>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									📄 重要な帳票はPDF保存も推奨
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- システム・データ関連のトラブル -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">💾 システム・データ関連のトラブル</h2>
+
+					<div class="steps__container">
+						<!-- データ不整合 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📊</div>
+								<h3>データの不整合・計算が合わない</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>店舗別の合計と全体の合計が合わない、明らかにおかしい数値
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 確認手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>基本データの確認</strong><br />
+											商品データベース、店舗マスターに異常がないか
+										</li>
+										<li>
+											<strong>最新データの確認</strong><br />
+											更新処理が正常に完了しているか
+										</li>
+										<li>
+											<strong>手計算での検証</strong><br />
+											疑問のある数値を電卓で計算
+										</li>
+										<li>
+											<strong>個別店舗の確認</strong><br />
+											異常値を示している店舗データを個別確認
+										</li>
+										<li>
+											<strong>数式の検証</strong><br />
+											SUM、VLOOKUP等の数式が正しいか確認
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚠️ よくある原因</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>商品名の表記ゆれ（スペース、文字種違い）</li>
+										<li>終売商品の設定漏れ</li>
+										<li>新商品のデータ登録不備</li>
+										<li>店舗コードの重複・間違い</li>
+										<li>日付の設定ミス</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									🔍 小さなミスが大きな影響
+								</div>
+							</div>
+						</div>
+
+						<!-- 動作が重い -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">🐌</div>
+								<h3>Excelの動作が重い・固まる</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>処理に時間がかかる、応答なしになる、VBAが途中で止まる
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔧 対処手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>他のアプリケーションを閉じる</strong><br />
+											使用していない他のソフトを終了
+										</li>
+										<li>
+											<strong>自動計算を手動に変更</strong><br />
+											数式→計算方法→手動計算に変更
+										</li>
+										<li>
+											<strong>不要なシートを非表示</strong><br />
+											使用していないシートを非表示にする
+										</li>
+										<li>
+											<strong>ファイルサイズの確認</strong><br />
+											異常に大きくなっていないか確認
+										</li>
+										<li>
+											<strong>メモリの解放</strong><br />
+											Excel を再起動してメモリをクリア
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>💡 予防策</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>定期的なファイルの最適化</li>
+										<li>不要なデータの削除</li>
+										<li>古いデータのアーカイブ</li>
+										<li>PC のメンテナンス（不要ファイル削除等）</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--primary mt-1">
+									⚡ 定期メンテナンスで予防
+								</div>
+							</div>
+						</div>
+
+						<!-- バックアップ関連 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">💾</div>
+								<h3>バックアップ・復旧</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>症状：</strong
+									>データを間違って削除・変更してしまった、前の状態に戻したい
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔄 復旧手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>操作の取り消し</strong><br />
+											Ctrl+Z で直前の操作を取り消し
+										</li>
+										<li>
+											<strong>自動回復ファイルの確認</strong><br />
+											Excel の自動保存ファイルを確認
+										</li>
+										<li>
+											<strong>バックアップファイルの確認</strong><br />
+											定期バックアップからの復旧
+										</li>
+										<li>
+											<strong>バージョン履歴の確認</strong><br />
+											OneDrive等のバージョン履歴機能
+										</li>
+										<li>
+											<strong>手動での再作成</strong><br />
+											復旧困難な場合は手動で再作成
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>💾 バックアップのベストプラクティス</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>3-2-1ルール</strong
+											>：3つのコピー、2つの異なる媒体、1つは別の場所
+										</li>
+										<li>
+											<strong>毎日実施</strong>：業務終了時に必ずバックアップ
+										</li>
+										<li><strong>世代管理</strong>：最低1週間分は保持</li>
+										<li>
+											<strong>復旧テスト</strong>：定期的に復旧テストを実施
+										</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									💾 バックアップは業務継続の生命線
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 業務プロセス関連のトラブル -->
+				<section class="mb-3">
+					<h2 class="text-center mb-2">📋 業務プロセス関連のトラブル</h2>
+
+					<div class="steps__container">
+						<!-- 急な個数変更 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📞</div>
+								<h3>店舗から急な個数変更依頼</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>状況：</strong
+									>製造開始直前・当日に大幅な個数変更依頼があった
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🚨 対応手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>変更内容の確認</strong><br />
+											店舗名、商品名、変更前後の個数、理由
+										</li>
+										<li>
+											<strong>製造可能性の確認</strong><br />
+											材料在庫、製造能力、設備状況
+										</li>
+										<li>
+											<strong>影響範囲の評価</strong><br />
+											他商品への影響、配送への影響
+										</li>
+										<li>
+											<strong>関係部署への連絡</strong><br />
+											製造現場、配送担当、材料発注担当
+										</li>
+										<li>
+											<strong>システムデータの更新</strong><br />
+											店舗シートの修正、関連表の更新
+										</li>
+										<li>
+											<strong>変更記録の作成</strong><br />
+											変更内容と対応の記録
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>⚖️ 判断基準</h4>
+									<table class="table mt-1">
+										<thead>
+											<tr>
+												<th>変更幅</th>
+												<th>判断</th>
+												<th>対応</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>±10%以内</strong></td>
+												<td>通常対応</td>
+												<td>在庫・能力内で調整</td>
+											</tr>
+											<tr>
+												<td><strong>±20%以内</strong></td>
+												<td>要検討</td>
+												<td>製造現場と要相談</td>
+											</tr>
+											<tr>
+												<td><strong>±20%超</strong></td>
+												<td>困難</td>
+												<td>代替案の提示</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="badge badge--warning mt-1">
+									⏰ 迅速な判断と関係者への連絡が重要
+								</div>
+							</div>
+						</div>
+
+						<!-- 設備トラブル -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">⚙️</div>
+								<h3>製造設備のトラブル</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>状況：</strong
+									>オーブン故障、ミキサー不調など製造に影響する設備トラブル
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🆘 緊急対応手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>安全確保</strong><br />
+											作業者の安全を最優先に確保
+										</li>
+										<li>
+											<strong>影響範囲の把握</strong><br />
+											どの商品・どの工程に影響するか確認
+										</li>
+										<li>
+											<strong>代替手段の検討</strong><br />
+											他の設備での代替可能性を確認
+										</li>
+										<li>
+											<strong>製造計画の見直し</strong><br />
+											システムで製造数・スケジュールを調整
+										</li>
+										<li>
+											<strong>店舗への連絡</strong><br />
+											納品遅延・欠品の可能性を連絡
+										</li>
+										<li>
+											<strong>復旧作業の開始</strong><br />
+											メンテナンス業者への連絡
+										</li>
+									</ol>
+								</div>
+
+								<div class="system-overview mt-1">
+									<h4>📋 システム対応</h4>
+									<ul style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>影響商品の製造数を0または削減</li>
+										<li>代替商品の製造数を増加</li>
+										<li>発注表の緊急見直し</li>
+										<li>配送計画の調整</li>
+									</ul>
+								</div>
+
+								<div class="badge badge--error mt-1">
+									🚨 製造への影響は最小限に
+								</div>
+							</div>
+						</div>
+
+						<!-- 材料不足 -->
+						<div class="steps__item">
+							<div class="steps__item-header">
+								<div class="step-number">📦</div>
+								<h3>材料不足・納期遅延</h3>
+							</div>
+							<div class="steps__item-content">
+								<p>
+									<strong>状況：</strong
+									>重要材料の在庫不足、仕入先からの納期遅延連絡
+								</p>
+
+								<div class="system-overview mt-1">
+									<h4>🔍 対応手順</h4>
+									<ol style="margin-left: 2rem; margin-top: 0.5rem">
+										<li>
+											<strong>在庫状況の正確な把握</strong><br />
+											現在庫量と必要量を正確に計算
+										</li>
+										<li>
+											<strong>製造可能数の算出</strong><br />
+											現在庫
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
