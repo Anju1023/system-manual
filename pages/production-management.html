@@ -21,7 +21,9 @@
 					<li><a href="system-overview.html">システム構成</a></li>
 					<li><a href="product-management.html">商品管理</a></li>
 					<li><a href="order-management.html">発注管理</a></li>
-					<li><a href="production-management.html" class="active">製造数管理</a></li>
+					<li>
+						<a href="production-management.html" class="active">製造数管理</a>
+					</li>
 					<li><a href="reports.html">各種帳票作成</a></li>
 					<li><a href="troubleshooting.html">トラブル対応</a></li>
 				</ul>
@@ -798,7 +800,7 @@
 
 			<footer>
 				<p>
-					© 2025 パン屋業務マニュアル |
+					© 2025 ベーカリー事務マニュアル |
 					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
 				</p>
 			</footer>
@@ -808,17 +810,17 @@
 			function toggleNav() {
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				toggle.classList.toggle('active');
 				links.classList.toggle('active');
 			}
-			
+
 			// メニュー外クリックで閉じる
-			document.addEventListener('click', function(e) {
+			document.addEventListener('click', function (e) {
 				const nav = document.querySelector('.nav__container');
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				if (!nav.contains(e.target)) {
 					toggle.classList.remove('active');
 					links.classList.remove('active');

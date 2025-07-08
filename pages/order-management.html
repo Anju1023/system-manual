@@ -3,13 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>発注管理 | パン屋業務マニュアル</title>
+		<title>発注管理 | ベーカリー事務マニュアル</title>
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
 	<body>
 		<nav class="nav">
 			<div class="nav__container">
-				<a href="../index.html" class="nav__logo">🥖 パン屋マニュアル</a>
+				<a href="../index.html" class="nav__logo"
+					>🥖 ベーカリー事務マニュアル</a
+				>
 				<button class="nav__toggle" onclick="toggleNav()">
 					<span></span>
 					<span></span>
@@ -648,7 +650,7 @@
 
 			<footer>
 				<p>
-					© 2025 パン屋業務マニュアル |
+					© 2025 ベーカリー事務マニュアル |
 					<a href="../index.html" style="color: #e8a87c">ホームに戻る</a>
 				</p>
 			</footer>
@@ -658,17 +660,17 @@
 			function toggleNav() {
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				toggle.classList.toggle('active');
 				links.classList.toggle('active');
 			}
-			
+
 			// メニュー外クリックで閉じる
-			document.addEventListener('click', function(e) {
+			document.addEventListener('click', function (e) {
 				const nav = document.querySelector('.nav__container');
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				if (!nav.contains(e.target)) {
 					toggle.classList.remove('active');
 					links.classList.remove('active');
