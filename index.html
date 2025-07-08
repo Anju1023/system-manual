@@ -1,126 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パン屋業務マニュアル</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <nav class="nav">
-        <div class="nav__container">
-            <a href="index.html" class="nav__logo">🥖 パン屋マニュアル</a>
-            <button class="nav__toggle" onclick="toggleNav()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav__links">
-                <li><a href="index.html" class="active">ホーム</a></li>
-                <li><a href="pages/daily-operations.html">日常操作</a></li>
-                <li><a href="pages/system-overview.html">システム構成</a></li>
-                <li><a href="pages/product-management.html">商品管理</a></li>
-                <li><a href="pages/order-management.html">発注管理</a></li>
-                <li><a href="pages/production-management.html">製造数管理</a></li>
-                <li><a href="pages/reports.html">各種帳票作成</a></li>
-                <li><a href="pages/troubleshooting.html">トラブル対応</a></li>
-            </ul>
-        </div>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>パン屋業務マニュアル</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav__container">
+				<a href="index.html" class="nav__logo">🥖 ベーカリー事務マニュアル</a>
+				<button class="nav__toggle" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav__links">
+					<li><a href="index.html" class="active">ホーム</a></li>
+					<li><a href="pages/daily-operations.html">日常操作</a></li>
+					<li><a href="pages/system-overview.html">システム構成</a></li>
+					<li><a href="pages/product-management.html">商品管理</a></li>
+					<li><a href="pages/order-management.html">発注管理</a></li>
+					<li><a href="pages/production-management.html">製造数管理</a></li>
+					<li><a href="pages/reports.html">各種帳票作成</a></li>
+					<li><a href="pages/troubleshooting.html">トラブル対応</a></li>
+				</ul>
+			</div>
+		</nav>
 
-    <script>
-        function toggleNav() {
-            const toggle = document.querySelector('.nav__toggle');
-            const links = document.querySelector('.nav__links');
-            
-            toggle.classList.toggle('active');
-            links.classList.toggle('active');
-        }
-        
-        // メニュー外クリックで閉じる
-        document.addEventListener('click', function(e) {
-            const nav = document.querySelector('.nav__container');
-            const toggle = document.querySelector('.nav__toggle');
-            const links = document.querySelector('.nav__links');
-            
-            if (!nav.contains(e.target)) {
-                toggle.classList.remove('active');
-                links.classList.remove('active');
-            }
-        });
-    </script>
-    <div class="container">
-        <header>
-            <h1>🥖 パン屋業務マニュアル</h1>
-            <p class="subtitle">製造センター業務システムの完全ガイド</p>
-            <div class="system-overview">
-                <h2>📋 システム概要</h2>
-                <p>このシステムは、40店舗への納品管理から製造スケジュール、発注管理まで、パン屋の業務を一元管理するExcel＋VBAシステムです。商品データベースを中心に、すべての業務が連動しています。</p>
-            </div>
-        </header>
+		<script>
+			function toggleNav() {
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
 
-        <main>
-            <div class="cards-grid">
-                <a href="pages/daily-operations.html" class="card">
-                    <div class="card__icon">👥</div>
-                    <span class="target-audience">現場スタッフ向け</span>
-                    <h3 class="card__title">日常操作マニュアル</h3>
-                    <p class="card__description">毎日使う表の見方、ボタンの操作方法、印刷手順など、パン製造に必要な基本操作をわかりやすく解説します。</p>
-                </a>
+				toggle.classList.toggle('active');
+				links.classList.toggle('active');
+			}
 
-                <a href="pages/system-overview.html" class="card">
-                    <div class="card__icon">🔧</div>
-                    <span class="target-audience">管理者向け</span>
-                    <h3 class="card__title">システム全体構成</h3>
-                    <p class="card__description">Excelファイルの構造、各シートの関係性、データの流れを図解で説明。システム全体を理解できます。</p>
-                </a>
+			// メニュー外クリックで閉じる
+			document.addEventListener('click', function (e) {
+				const nav = document.querySelector('.nav__container');
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
 
-                <a href="pages/product-management.html" class="card">
-                    <div class="card__icon">🍞</div>
-                    <span class="target-audience">事務作業者向け</span>
-                    <h3 class="card__title">商品データベース管理</h3>
-                    <p class="card__description">新商品登録、終売処理、商品情報の変更方法など、商品マスターの管理業務を詳しく説明します。</p>
-                </a>
+				if (!nav.contains(e.target)) {
+					toggle.classList.remove('active');
+					links.classList.remove('active');
+				}
+			});
+		</script>
+		<div class="container">
+			<header>
+				<h1>🥖 ベーカリー事務マニュアル</h1>
+				<p class="subtitle">製造センター業務システムの完全ガイド</p>
+				<div class="system-overview">
+					<h2>📋 システム概要</h2>
+					<p>
+						このシステムは、店舗への納品管理から製造スケジュール、発注管理まで、業務を一元管理するExcel＋VBAシステムです。商品データベースを中心に、すべての業務が連動しています。
+					</p>
+				</div>
+			</header>
 
-                <a href="pages/production-management.html" class="card">
-                    <div class="card__icon">📊</div>
-                    <span class="target-audience">事務作業者向け</span>
-                    <h3 class="card__title">製造数管理</h3>
-                    <p class="card__description">製造数の算出、生地出し計画、天板配置計算など、製造計画に関する業務の手順を解説します。</p>
-                </a>
+			<main>
+				<div class="cards-grid">
+					<a href="pages/daily-operations.html" class="card">
+						<div class="card__icon">👥</div>
+						<span class="target-audience">現場スタッフ向け</span>
+						<h3 class="card__title">日常操作マニュアル</h3>
+						<p class="card__description">
+							毎日使う表の見方、ボタンの操作方法、印刷手順など、パン製造に必要な基本操作をわかりやすく解説します。
+						</p>
+					</a>
 
-                <a href="pages/order-management.html" class="card">
-                    <div class="card__icon">📦</div>
-                    <span class="target-audience">事務作業者向け</span>
-                    <h3 class="card__title">発注管理</h3>
-                    <p class="card__description">レシピデータから自動発注表作成、材料マスター管理、仕入先別発注書の出力方法を説明します。</p>
-                </a>
+					<a href="pages/system-overview.html" class="card">
+						<div class="card__icon">🔧</div>
+						<span class="target-audience">管理者向け</span>
+						<h3 class="card__title">システム全体構成</h3>
+						<p class="card__description">
+							Excelファイルの構造、各シートの関係性、データの流れを図解で説明。システム全体を理解できます。
+						</p>
+					</a>
 
-                <a href="pages/reports.html" class="card">
-                    <div class="card__icon">📄</div>
-                    <span class="target-audience">事務作業者向け</span>
-                    <h3 class="card__title">各種帳票作成</h3>
-                    <p class="card__description">明細書、納品記録PDF、ラベル出し表、棚卸表など、日々の帳票作成業務をステップバイステップで解説。</p>
-                </a>
+					<a href="pages/product-management.html" class="card">
+						<div class="card__icon">🍞</div>
+						<span class="target-audience">事務作業者向け</span>
+						<h3 class="card__title">商品データベース管理</h3>
+						<p class="card__description">
+							新商品登録、終売処理、商品情報の変更方法など、商品マスターの管理業務を詳しく説明します。
+						</p>
+					</a>
 
-                <a href="pages/troubleshooting.html" class="card">
-                    <div class="card__icon">🆘</div>
-                    <span class="target-audience">全員向け</span>
-                    <h3 class="card__title">トラブル対応</h3>
-                    <p class="card__description">よくあるエラー、VBAが動かない時の対処法、データ復旧方法など、困った時の解決策をまとめています。</p>
-                </a>
-            </div>
+					<a href="pages/production-management.html" class="card">
+						<div class="card__icon">📊</div>
+						<span class="target-audience">事務作業者向け</span>
+						<h3 class="card__title">製造数管理</h3>
+						<p class="card__description">
+							製造数の算出、生地出し計画、天板配置計算など、製造計画に関する業務の手順を解説します。
+						</p>
+					</a>
 
-            <div class="emergency-contact">
-                <h3>🚨 緊急時の連絡先</h3>
-                <p>システムに関する緊急のトラブルは、あんじゅ（引き継ぎ担当者）まで連絡してください。</p>
-                <p><strong>連絡先：</strong> [連絡先を入力]</p>
-            </div>
-        </main>
+					<a href="pages/order-management.html" class="card">
+						<div class="card__icon">📦</div>
+						<span class="target-audience">事務作業者向け</span>
+						<h3 class="card__title">発注管理</h3>
+						<p class="card__description">
+							レシピデータから自動発注表作成、材料マスター管理、仕入先別発注書の出力方法を説明します。
+						</p>
+					</a>
 
-        <footer>
-            <p>© 2025 パン屋業務マニュアル | 最終更新日: 2025年7月</p>
-        </footer>
-    </div>
-</body>
+					<a href="pages/reports.html" class="card">
+						<div class="card__icon">📄</div>
+						<span class="target-audience">事務作業者向け</span>
+						<h3 class="card__title">各種帳票作成</h3>
+						<p class="card__description">
+							明細書、納品記録PDF、ラベル出し表、棚卸表など、日々の帳票作成業務をステップバイステップで解説。
+						</p>
+					</a>
+
+					<a href="pages/troubleshooting.html" class="card">
+						<div class="card__icon">🆘</div>
+						<span class="target-audience">全員向け</span>
+						<h3 class="card__title">トラブル対応</h3>
+						<p class="card__description">
+							よくあるエラー、VBAが動かない時の対処法、データ復旧方法など、困った時の解決策をまとめています。
+						</p>
+					</a>
+				</div>
+
+				<div class="emergency-contact">
+					<h3>🚨 緊急時の連絡先</h3>
+					<p>システムに関する緊急のトラブルは、結城まで連絡してください。</p>
+					<p><strong>連絡先：</strong> [080-7931-1023]</p>
+				</div>
+			</main>
+
+			<footer>
+				<p>© 2025 パン屋業務マニュアル | 最終更新日: 2025年7月</p>
+			</footer>
+		</div>
+	</body>
 </html>

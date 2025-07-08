@@ -78,26 +78,26 @@
 										<tr>
 											<td><strong>商品ID</strong></td>
 											<td>カテゴリ頭文字＋4桁数字</td>
-											<td>F0001, B0025</td>
+											<td>S0001, B0025</td>
 											<td>一度設定したら変更禁止</td>
 										</tr>
 										<tr>
 											<td><strong>商品名</strong></td>
 											<td>商品の正式名称</td>
-											<td>メロンパン, 食パン1.5斤</td>
-											<td>レシピシートと完全一致必須</td>
+											<td>メロンパン, 発酵バタークロワッサン</td>
+											<td>"レシピ"シートと完全一致必須</td>
 										</tr>
 										<tr>
 											<td><strong>売価</strong></td>
-											<td>主な販売価格</td>
+											<td>ローゼンでの販売価格</td>
 											<td>180, 250</td>
-											<td>税込み価格で入力</td>
+											<td>レシピ、ラベルと完全一致必須</td>
 										</tr>
 										<tr>
 											<td><strong>クリエ売価</strong></td>
-											<td>他社向け販売価格</td>
+											<td>クリエイト店舗での販売価格</td>
 											<td>150, 200</td>
-											<td>卸売価格で入力</td>
+											<td>ラベルと完全一致必須</td>
 										</tr>
 									</tbody>
 								</table>
@@ -123,27 +123,27 @@
 									<tbody>
 										<tr>
 											<td><strong>ラベル</strong></td>
-											<td>自社ラベル印刷用番号</td>
-											<td>101, 205</td>
-											<td>ラベル機の設定番号と一致</td>
+											<td>ローゼンラベル印刷用番号</td>
+											<td>5015, 6125</td>
+											<td>4000以降の番号、ラベルと完全一致必須</td>
 										</tr>
 										<tr>
 											<td><strong>クリエラベル</strong></td>
-											<td>他社向けラベル番号</td>
-											<td>301, 402</td>
-											<td>他社仕様に合わせる</td>
+											<td>クリエイト用ラベル番号</td>
+											<td>8002, 8015</td>
+											<td>8000以降の番号、ラベルと完全一致必須</td>
 										</tr>
 										<tr>
 											<td><strong>カテゴリ</strong></td>
 											<td>商品の種類分類</td>
-											<td>食パン, 菓子パン, 惣菜パン</td>
+											<td>食パン, 菓子パン, ドーナツ, デニッシュ</td>
 											<td>統一された表記で入力</td>
 										</tr>
 										<tr>
 											<td><strong>金探</strong></td>
 											<td>金属探知機登録番号</td>
-											<td>A001, B015</td>
-											<td>金属探知機の設定と一致</td>
+											<td>031, 012</td>
+											<td>金属探知機の設定番号と一致</td>
 										</tr>
 									</tbody>
 								</table>
@@ -176,20 +176,22 @@
 										<tr>
 											<td><strong>生地名</strong></td>
 											<td>使用する生地の種類</td>
-											<td>食パン生地, メロン生地</td>
-											<td>生地出し表の分類と一致</td>
+											<td>アズキレンニュウ, フランスキジ</td>
+											<td>生地出し表に表示される名前</td>
 										</tr>
 										<tr>
 											<td><strong>並べる表</strong></td>
-											<td>天板並べ表への掲載</td>
-											<td>○, ×</td>
-											<td>○なら並べる表に表示</td>
+											<td>並べる表への表示</td>
+											<td>○,空白</td>
+											<td>○なら並べる表に表示、空白なら表示しない</td>
 										</tr>
 										<tr>
 											<td><strong>生地出し</strong></td>
-											<td>生地出し表への掲載</td>
-											<td>○, ×</td>
-											<td>○なら生地出し表に表示</td>
+											<td>生地出し表への表示</td>
+											<td>○, ×, 空白</td>
+											<td>
+												冷凍生地は○、スクラッチ生地は×、空白なら表示しない
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -217,7 +219,7 @@
 											<td><strong>生地数</strong></td>
 											<td>1個を作るのに必要な生地個数</td>
 											<td>1, 2, 0.5</td>
-											<td>小数での入力も可能</td>
+											<td>食パン1/2でも1/4でも"1"</td>
 										</tr>
 										<tr>
 											<td><strong>何個入</strong></td>
@@ -229,18 +231,18 @@
 											<td><strong>最大数</strong></td>
 											<td>1天板に乗せられる最大個数</td>
 											<td>12, 20, 8</td>
-											<td>天板のサイズに応じて設定</td>
+											<td>パンのサイズに応じて設定</td>
 										</tr>
 										<tr>
 											<td><strong>倍数</strong></td>
-											<td>製造時の単位</td>
+											<td>並べる際の倍数</td>
 											<td>5, 10, 1</td>
-											<td>5個ずつ並べるなら5</td>
+											<td>ミニクロなど、5個ずつ並べるなら"5"</td>
 										</tr>
 										<tr>
 											<td><strong>袋</strong></td>
 											<td>使用する包装材の種類</td>
-											<td>A袋, B袋, 食パン袋</td>
+											<td>防曇袋, 1斤袋, ニラ袋</td>
 											<td>発注表で材料として計算</td>
 										</tr>
 									</tbody>
@@ -302,12 +304,12 @@
 										<li>☐ 包装仕様（袋の種類）</li>
 										<li>☐ 製造仕様（生地数、天板最大数など）</li>
 										<li>☐ ラベル印刷番号</li>
-										<li>☐ 金属探知機設定番号</li>
+										<li>☐ 金属探知機設定番号(あれば)</li>
 									</ul>
 								</div>
 
 								<div class="badge badge--warning mt-1">
-									⚠️ 不明な項目がある場合は、関係部署に確認してから登録
+									⚠️ 不明な項目がある場合は、確認してから登録
 								</div>
 							</div>
 						</div>
@@ -333,18 +335,38 @@
 										<tbody>
 											<tr>
 												<td>食パン</td>
-												<td>F</td>
-												<td>F0001, F0002...</td>
+												<td>S</td>
+												<td>S0001, S0002...</td>
 											</tr>
 											<tr>
-												<td>菓子パン</td>
+												<td>バケット</td>
 												<td>B</td>
 												<td>B0001, B0002...</td>
 											</tr>
 											<tr>
-												<td>惣菜パン</td>
-												<td>S</td>
-												<td>S0001, S0002...</td>
+												<td>ロール</td>
+												<td>R</td>
+												<td>R0001, R0002...</td>
+											</tr>
+											<tr>
+												<td>菓子パン</td>
+												<td>K</td>
+												<td>K0001, K0002...</td>
+											</tr>
+											<tr>
+												<td>調理パン</td>
+												<td>C</td>
+												<td>C0001, C0002...</td>
+											</tr>
+											<tr>
+												<td>ドーナツ</td>
+												<td>D</td>
+												<td>D0001, D0002...</td>
+											</tr>
+											<tr>
+												<td>デニッシュ</td>
+												<td>E</td>
+												<td>E0001, E0002...</td>
 											</tr>
 											<tr>
 												<td>その他</td>
@@ -404,16 +426,20 @@
 											<strong>入力内容の確認</strong><br />
 											全項目を再度チェック
 										</li>
+										<li>
+											<strong>まとめて出力</strong><br />
+											"操作"シートの全部まとめて出力ボタンを押して、出力された表を確認
+										</li>
 									</ol>
 								</div>
 
 								<div class="system-overview mt-1">
 									<h4>⚠️ 入力時の注意点</h4>
 									<ul style="margin-left: 2rem; margin-top: 0.5rem">
-										<li>商品名にスペースや特殊文字が含まれていないか</li>
+										<li>商品名に使う記号やスペースは半角で入力</li>
 										<li>数値項目に文字が混入していないか</li>
 										<li>○×項目は正確に入力されているか</li>
-										<li>既存のカテゴリ・生地名と表記が一致しているか</li>
+										<li>既存のカテゴリ・生地名と表記が一致しているか確認</li>
 									</ul>
 								</div>
 
@@ -444,7 +470,7 @@
 										</li>
 										<li>
 											<strong>各店舗シート</strong><br />
-											取り扱い店舗の納品個数を設定
+											取り扱い店舗の納品個数を設定(取り扱いが無くても0を入力)
 										</li>
 										<li>
 											<strong>材料マスター</strong><br />
@@ -714,88 +740,6 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="steps__item">
-							<div class="steps__item-header">
-								<div class="step-number">📋</div>
-								<h3>新商品取り扱い開始依頼</h3>
-							</div>
-							<div class="steps__item-content">
-								<p>
-									<strong>店舗から新商品の取り扱い開始依頼があった場合</strong>
-								</p>
-
-								<div class="system-overview mt-1">
-									<h4>✅ 対応手順</h4>
-									<ol style="margin-left: 2rem; margin-top: 0.5rem">
-										<li>
-											<strong>商品の確認</strong><br />
-											商品データベースに登録済みか確認
-										</li>
-										<li>
-											<strong>未登録の場合</strong><br />
-											新商品登録手順に従って登録
-										</li>
-										<li>
-											<strong>店舗シートへの追加</strong><br />
-											該当店舗シートに商品と個数を設定
-										</li>
-										<li>
-											<strong>開始日の調整</strong><br />
-											製造・配送体制との調整
-										</li>
-										<li>
-											<strong>関係部署への連絡</strong><br />
-											製造・配送・営業への情報共有
-										</li>
-									</ol>
-								</div>
-
-								<div class="badge badge--primary mt-1">
-									🔄 新商品は事前にテスト配送を行うことを推奨
-								</div>
-							</div>
-						</div>
-
-						<div class="steps__item">
-							<div class="steps__item-header">
-								<div class="step-number">🚫</div>
-								<h3>商品取り扱い停止依頼</h3>
-							</div>
-							<div class="steps__item-content">
-								<p><strong>特定店舗での商品取り扱い停止依頼への対応</strong></p>
-
-								<div class="system-overview mt-1">
-									<h4>📋 停止処理手順</h4>
-									<ol style="margin-left: 2rem; margin-top: 0.5rem">
-										<li>
-											<strong>停止理由の確認</strong><br />
-											一時的か恒久的かを明確にする
-										</li>
-										<li>
-											<strong>停止日の調整</strong><br />
-											在庫処理期間を考慮
-										</li>
-										<li>
-											<strong>該当店舗シートで個数を0に設定</strong><br />
-											または行を削除
-										</li>
-										<li>
-											<strong>製造数への影響確認</strong><br />
-											他店舗への影響がないか確認
-										</li>
-										<li>
-											<strong>記録の保持</strong><br />
-											停止理由と日付を記録
-										</li>
-									</ol>
-								</div>
-
-								<div class="badge badge--success mt-1">
-									📊 停止商品のデータは履歴として保持
-								</div>
-							</div>
-						</div>
 					</div>
 				</section>
 
@@ -982,17 +926,17 @@
 			function toggleNav() {
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				toggle.classList.toggle('active');
 				links.classList.toggle('active');
 			}
-			
+
 			// メニュー外クリックで閉じる
-			document.addEventListener('click', function(e) {
+			document.addEventListener('click', function (e) {
 				const nav = document.querySelector('.nav__container');
 				const toggle = document.querySelector('.nav__toggle');
 				const links = document.querySelector('.nav__links');
-				
+
 				if (!nav.contains(e.target)) {
 					toggle.classList.remove('active');
 					links.classList.remove('active');

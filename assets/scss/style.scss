@@ -1,5 +1,5 @@
 // ========================================
-// パン屋業務マニュアル - メインスタイル
+// ベーカリー事務マニュアル - メインスタイル
 // ========================================
 
 // ---------------- 変数定義 ----------------
@@ -107,13 +107,17 @@ body {
 header {
 	text-align: center;
 	margin-bottom: 3rem;
-	background: linear-gradient(135deg, $white 0%, lighten($background-light, 3%) 100%);
+	background: linear-gradient(
+		135deg,
+		$white 0%,
+		lighten($background-light, 3%) 100%
+	);
 	padding: 3rem 2.5rem;
 	border-radius: $radius-large;
 	box-shadow: $shadow-medium;
 	position: relative;
 	overflow: hidden;
-	
+
 	&::before {
 		content: '';
 		position: absolute;
@@ -121,12 +125,21 @@ header {
 		left: 0;
 		right: 0;
 		height: 4px;
-		background: linear-gradient(90deg, $primary-color, $secondary-color, $primary-color);
+		background: linear-gradient(
+			90deg,
+			$primary-color,
+			$secondary-color,
+			$primary-color
+		);
 	}
 
 	h1 {
 		font-size: 2.8rem;
-		background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
+		background: linear-gradient(
+			135deg,
+			$primary-color,
+			darken($primary-color, 15%)
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -354,7 +367,7 @@ header {
 	position: relative;
 	overflow: hidden;
 	transition: all 0.4s ease;
-	
+
 	&::before {
 		content: '';
 		position: absolute;
@@ -362,7 +375,12 @@ header {
 		left: -100%;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.1),
+			transparent
+		);
 		transition: left 0.6s ease;
 	}
 
@@ -370,16 +388,16 @@ header {
 		border-color: $primary-color;
 		transform: translateY(-8px) scale(1.02);
 		box-shadow: 0 12px 40px rgba(232, 168, 124, 0.25);
-		
+
 		&::before {
 			left: 100%;
 		}
-		
+
 		.card__icon {
 			transform: scale(1.1) rotate(5deg);
 			box-shadow: 0 8px 25px rgba(232, 168, 124, 0.4);
 		}
-		
+
 		.card__title {
 			color: $primary-color;
 		}
@@ -421,7 +439,11 @@ header {
 // ---------------- バッジ・ラベル ----------------
 .target-audience {
 	display: inline-block;
-	background: linear-gradient(135deg, $primary-color, lighten($primary-color, 8%));
+	background: linear-gradient(
+		135deg,
+		$primary-color,
+		lighten($primary-color, 8%)
+	);
 	color: $white;
 	padding: 0.4rem 1rem;
 	border-radius: 25px;
@@ -430,7 +452,7 @@ header {
 	margin-bottom: 1rem;
 	box-shadow: 0 2px 8px rgba(232, 168, 124, 0.3);
 	transition: all 0.3s ease;
-	
+
 	&:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 4px 12px rgba(232, 168, 124, 0.4);
@@ -445,14 +467,18 @@ header {
 	font-weight: 600;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
-	
+
 	&:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 	}
 
 	&--primary {
-		background: linear-gradient(135deg, $primary-color, lighten($primary-color, 10%));
+		background: linear-gradient(
+			135deg,
+			$primary-color,
+			lighten($primary-color, 10%)
+		);
 		color: $white;
 	}
 
@@ -467,21 +493,29 @@ header {
 	}
 
 	&--error {
-		background: linear-gradient(135deg, $error-color, lighten($error-color, 10%));
+		background: linear-gradient(
+			135deg,
+			$error-color,
+			lighten($error-color, 10%)
+		);
 		color: $white;
 	}
 }
 
 // ---------------- 特別なセクション ----------------
 .system-overview {
-	background: linear-gradient(135deg, $white 0%, lighten($background-light, 2%) 100%);
+	background: linear-gradient(
+		135deg,
+		$white 0%,
+		lighten($background-light, 2%) 100%
+	);
 	padding: 2rem;
 	border-radius: $radius-medium;
 	border-left: 6px solid $primary-color;
 	margin-bottom: 2rem;
 	box-shadow: $shadow-light;
 	position: relative;
-	
+
 	&::before {
 		content: '';
 		position: absolute;
@@ -499,7 +533,7 @@ header {
 		font-size: 1.3rem;
 		font-weight: 600;
 	}
-	
+
 	p {
 		line-height: 1.7;
 		font-size: 0.95rem;
@@ -524,7 +558,7 @@ header {
 	&__container {
 		display: grid;
 		gap: 1.5rem;
-		
+
 		@include responsive(mobile) {
 			gap: 1rem;
 		}
@@ -536,7 +570,7 @@ header {
 		border-left: 4px solid $primary-color;
 		position: relative;
 		overflow: hidden;
-		
+
 		&::before {
 			content: '';
 			position: absolute;
@@ -547,7 +581,7 @@ header {
 			background: linear-gradient(45deg, $primary-color, $secondary-color);
 			transition: width 0.3s ease;
 		}
-		
+
 		&:hover::before {
 			width: 6px;
 		}
@@ -587,7 +621,7 @@ header {
 			line-height: 1.7;
 			font-size: 0.95rem;
 		}
-		
+
 		&:hover {
 			.step-number {
 				transform: scale(1.05);
