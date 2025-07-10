@@ -12,6 +12,11 @@
 				<a href="../index.html" class="nav__logo"
 					>🥖 ベーカリー事務マニュアル</a
 				>
+				<button class="nav__toggle" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 				<ul class="nav__links">
 					<li><a href="../index.html">ホーム</a></li>
 					<li><a href="daily-operations.html">日常操作</a></li>
@@ -783,5 +788,27 @@
 				</p>
 			</footer>
 		</div>
+
+		<script>
+			function toggleNav() {
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
+
+				toggle.classList.toggle('active');
+				links.classList.toggle('active');
+			}
+
+			// メニュー外クリックで閉じる
+			document.addEventListener('click', function (e) {
+				const nav = document.querySelector('.nav__container');
+				const toggle = document.querySelector('.nav__toggle');
+				const links = document.querySelector('.nav__links');
+
+				if (!nav.contains(e.target)) {
+					toggle.classList.remove('active');
+					links.classList.remove('active');
+				}
+			});
+		</script>
 	</body>
 </html>
